@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organizations>
+    <organization>
+        <name>Adam Mickiewicz U</name>
+        <email>amu.edu.pl</email>
+        <keyword>Mickiewicz</keyword>
+    </organization>
+    <organization>
+        <name>ASU</name>
+        <name>Arizona State</name>
+        <email>asu.edu</email>
+        <keyword>ASU</keyword>
+    </organization>
+    <organization>
+        <name>UC Berkeley</name>
+        <name>U%of California%Berkeley</name>
+        <name></name>
+        <email>berkeley.edu</email>
+        <keyword>UCBerkeley</keyword>
+    </organization>
+    <organization>
+        <name>Boston U</name>
+        <email>bu.edu</email>
+        <keyword>BU</keyword>
+    </organization>
+    <organization>
+        <name>Cal%State</name>
+        <email>calstate.edu</email>
+        <email>csufresno.edu</email>
+        <email>csun.edu</email>
+        <email>fullerton.edu</email>
+        <keyword>CalState</keyword>
+    </organization>
+    <organization>
+        <name>Case Western</name>
+        <email>case.edu</email>
+        <keyword>CaseWestern</keyword>
+    </organization>
+    <organization>
+        <name>City U</name>
+        <email>cuny.edu</email>
+        <keyword>CUNY</keyword>
+    </organization>
+    <organization>
+        <name>Clark U</name>
+        <email>clarku.edu</email>
+        <keyword>ClarkU</keyword>
+    </organization>
+    <organization>
+        <name>Colorado State</name>
+        <email>colostate.edu</email>
+        <keyword>ColoState</keyword>
+    </organization>
+    <organization>
+        <name>Columbia U</name>
+        <email>columbia.edu</email>
+        <keyword>Columbia</keyword>
+    </organization>
+    <organization>
+        <name>Cornell</name>
+        <email>cornell.edu</email>
+        <keyword>Cornell</keyword>
+    </organization>
+    <organization>
+        <name>Dartmouth</name>
+        <email>dartmouth.edu</email>
+        <keyword>Dartmouth</keyword>
+    </organization>
+    <organization>
+        <name>Dickinson C</name>
+        <email>dickinson.edu</email>
+        <keyword>Dickinson</keyword>
+    </organization>
+    <organization>
+        <name>Duke U</name>
+        <email>duke.edu</email>
+        <keyword>Duke</keyword>
+    </organization>
+    <organization>
+        <name>East Carolina U</name>
+        <email>ecu.edu</email>
+        <keyword>ECU</keyword>
+    </organization>
+    <organization>
+        <name>Florida International U</name>
+        <name>FIU</name>
+        <email>fiu.edu</email>
+        <keyword>FIU</keyword>
+    </organization>
+    <organization>
+        <name>Fairfield U</name>
+        <email>fairfield.edu</email>
+        <keyword>Fairfield</keyword>
+    </organization>
+    <organization>
+        <name>Florida Atlantic</name>
+        <email>fau.edu</email>
+        <keyword>FloridaAtlantic</keyword>
+    </organization>
+    <organization>
+        <name>Florida State</name>
+        <name>FSU</name>
+        <email>fsu.edu</email>
+        <keyword>FSU</keyword>
+    </organization>
+    <organization>
+        <name>George Mason</name>
+        <email>gmu.edu</email>
+        <keyword>GeorgeMason</keyword>
+    </organization>
+    <organization>
+        <name>Georgia Southern</name>
+        <email>georgiasouthern.edu</email>
+        <keyword>GeorgiaSouthern</keyword>
+    </organization>
+    <organization>
+        <name>Idaho State</name>
+        <email>isu.edu</email>
+        <keyword>ISU</keyword>
+    </organization>
+    <organization>
+        <name>Indiana Univ</name>
+        <email>iu.edu</email>
+        <email>indiana.edu</email>
+        <keyword>Indiana</keyword>
+    </organization>
+    <organization>
+        <name>Iowa State</name>
+        <email>iastate.edu</email>
+        <keyword>IowaState</keyword>
+    </organization>
+    <organization>
+        <name>Irkutsk</name>
+        <email>isu.ru</email>
+        <keyword>Irkutsk</keyword>
+    </organization>
+    <organization>
+        <name>Johns Hopkins</name>
+        <name>JHU</name>
+        <email>jhu.edu</email>
+        <keyword>JHU</keyword>
+    </organization>
+    <organization>
+        <name>Kansas State</name>
+        <email>ksu.edu</email>
+        <keyword>KSU</keyword>
+    </organization>
+    <organization>
+        <name>Louisiana State</name>
+        <email>lsu.edu</email>
+        <keyword>LSU</keyword>
+    </organization>
+    <organization>
+        <name>Miami University</name>
+        <email>miamioh.edu</email>
+        <keyword>MiamiOH</keyword>
+    </organization>
+    <organization>
+        <name>Marine Biological Lab</name>
+        <email>mbl.edu</email>
+        <keyword>MarineBioLab</keyword>
+    </organization>
+    <organization>
+        <name>Massachusetts Inst</name>
+        <name>MIT</name>
+        <email>mit.edu</email>
+        <keyword>MIT</keyword>
+    </organization>
+    <organization>
+        <name>Middlebury Coll</name>
+        <email>middlebury.edu</email>
+        <keyword>Middlebury</keyword>
+    </organization>
+    <organization>
+        <name>Michigan State</name>
+        <name>MSU</name>
+        <email>msu.edu</email>
+        <keyword>MSU</keyword>
+    </organization>
+    <organization>
+        <name>Michigan Tech</name>
+        <name>MTU</name>
+        <email>mtu.edu</email>
+        <keyword>MTU</keyword>
+    </organization>
+    <organization>
+        <name>Monash U</name>
+        <email>monash.edu.au</email>
+        <keyword>Monash</keyword>
+    </organization>
+    <organization>
+        <name>Montana State</name>
+        <email>montana.edu</email>
+        <keyword>MontanaState</keyword>
+    </organization>
+    <organization>
+        <name>NMSU</name>
+        <name>New Mexico State</name>
+        <email>nmsu.edu</email>
+        <keyword>NMSU</keyword>
+    </organization>
+    <organization>
+        <name>North Carolina State</name>
+        <email>ncsu.edu</email>
+        <keyword>NorthCarolinaState</keyword>
+    </organization>
+    <organization>
+        <name>Northeastern U</name>
+        <email>northeastern.edu</email>
+        <email>neu.edu</email>
+        <keyword>Northeastern</keyword>
+    </organization>
+    <organization>
+        <name>Northern Arizona</name>
+        <email>nau.edu</email>
+        <keyword>Northern Arizona</keyword>
+    </organization>
+    <organization>
+        <name>Ohio State</name>
+        <name>OSU</name>
+        <email>osu.edu</email>
+        <keyword>OSU</keyword>
+    </organization>
+    <organization>
+        <name>Ohio University</name>
+        <email>ohio.edu</email>
+        <keyword>OhioU</keyword>
+    </organization>
+    <organization>
+        <name>Old Dominion</name>
+        <email>odu.edu</email>
+        <keyword>OldDominion</keyword>
+    </organization>
+    <organization>
+        <name>Oregon State</name>
+        <email>oregonstate.edu</email>
+        <email>orst.edu</email>
+        <keyword>OregonState</keyword>
+    </organization>
+    <organization>
+        <name>Pace</name>
+        <email>pace.edu</email>
+        <keyword>PaceU</keyword>
+    </organization>
+    <organization>
+        <name>Penn%State</name>
+        <email>psu.edu</email>
+        <keyword>PennState</keyword>
+    </organization>
+    <organization>
+        <name>Plymouth State</name>
+        <email>plymouth.edu</email>
+        <keyword>PlymouthState</keyword>
+    </organization>
+    <organization>
+        <name>Portland State</name>
+        <email>pdx.edu</email>
+        <keyword>PortlandState</keyword>
+    </organization>
+    <organization>
+        <name>Purdue</name>
+        <email>purdue.edu</email>
+        <keyword>Purdue</keyword>
+    </organization>
+    <organization>
+        <name>Rennselaer</name>
+        <name>RPI</name>
+        <email>rpi.edu</email>
+        <keyword>RPI</keyword>
+    </organization>
+    <organization>
+        <name>Rutgers</name>
+        <email>rutgers.edu</email>
+        <keyword>Rutgers</keyword>
+    </organization>
+    <organization>
+        <name>Simon Fraser</name>
+        <email>sfu.ca</email>
+        <keyword>SimonFraser</keyword>
+    </organization>
+    <organization>
+        <name>Southern Illinois</name>
+        <email>siu.edu</email>
+        <keyword>SouthernIllinois</keyword>
+    </organization>
+    <organization>
+        <name>Stony Brook</name>
+        <email>stonybrook.edu</email>
+        <keyword>StonyBrook</keyword>
+    </organization>
+    <organization>
+        <name>SUNY</name>
+        <name>State U%New York</name>
+        <email>suny.edu</email>
+        <email>esf.edu</email>
+        <email>newpaltz.edu</email>
+        <keyword>SUNY</keyword>
+    </organization>
+    <organization>
+        <name>Syracuse U</name>
+        <email>syr.edu</email>
+        <keyword>Syracuse</keyword>
+    </organization>
+    <organization>
+        <name>Texas A&amp;M</name>
+        <email>tamu.edu</email>
+        <keyword>TexasA&amp;M</keyword>
+    </organization>
+    <organization>
+        <name>Texas Tech</name>
+        <email>ttu.edu</email>
+        <keyword>TexasTech</keyword>
+    </organization>
+    <organization>
+        <name>Towson U</name>
+        <email>towson.edu</email>
+        <keyword>Towson</keyword>
+    </organization>
+    <organization>
+        <name>Tulane U</name>
+        <email>tulane.edu</email>
+        <keyword>Tulane</keyword>
+    </organization>
+    <organization>
+        <name>UCSB</name>
+        <name>UC Santa Barbara</name>
+        <name>University of California%Santa Barbara</name>
+        <email>ucsb.edu</email>
+        <keyword>UCSB</keyword>
+    </organization>
+    <organization>
+        <name>Umea U</name>
+        <email>umu.se</email>
+        <keyword>Umea</keyword>
+    </organization>
+    <organization>
+        <name>U%At Albany</name>
+        <email>albany.edu</email>
+        <keyword>UAtAlbany</keyword>
+    </organization>
+    <organization>
+        <name>U%of Alabama</name>
+        <email>ua.edu</email>
+        <keyword>UAlabama</keyword>
+    </organization>
+    <organization>
+        <name>U%of Alaska</name>
+        <email>alaska.edu</email>
+        <keyword>UAlaska</keyword>
+    </organization>
+    <organization>
+        <name>U%of Arizona</name>
+        <email>arizona.edu</email>
+        <keyword>UArizona</keyword>
+    </organization>
+    <organization>
+        <name>U%of California</name>
+        <email>ucdavis.edu</email>
+        <email>ucla.edu</email>
+        <email>ucsd.edu</email>
+        <email>uci.edu</email>
+        <email>ucmerced.edu</email>
+        <email>ucr.edu</email>
+        <keyword>UCalifornia</keyword>
+    </organization>
+    <organization>
+        <name>U%Central Oklahoma</name>
+        <email>uco.edu</email>
+        <keyword>CentralOklahoma</keyword>
+    </organization>
+    <organization>
+        <name>U%Central Florida</name>
+        <email>cfu.edu</email>
+        <keyword>CentralFlorida</keyword>
+    </organization>
+    <organization>
+        <name>U%of Colorado</name>
+        <email>colorado.edu</email>
+        <email>uccs.edu</email>
+        <keyword>UColorado</keyword>
+    </organization>
+    <organization>
+        <name>U%of Connecticut</name>
+        <email>uconn.edu</email>
+        <keyword>UConn</keyword>
+    </organization>
+    <organization>
+        <name>U%Delaware</name>
+        <email>udel.edu</email>
+        <keyword>UDelaware</keyword>
+    </organization>
+    <organization>
+        <name>U%of Florida</name>
+        <email>ufl.edu</email>
+        <keyword>UFlorida</keyword>
+    </organization>
+    <organization>
+        <name>U%of Georgia</name>
+        <email>uga.edu</email>
+        <keyword>UGA</keyword>
+    </organization>
+    <organization>
+        <name>U%of Houston</name>
+        <email>uh.edu</email>
+        <keyword>UHouston</keyword>
+    </organization>
+    <organization>
+        <name>U%of Illinois</name>
+        <email>illinois.edu</email>
+        <email>uic.edu</email>
+        <email>uiuc.edu</email>
+        <keyword>UIllinois</keyword>
+    </organization>
+    <organization>
+        <name>U%Kansas</name>
+        <email>ku.edu</email>
+        <keyword>UKansas</keyword>
+    </organization>
+    <organization>
+        <name>U%Kentucky</name>
+        <email>uky.edu</email>
+        <keyword>UKentucky</keyword>
+    </organization>
+    <organization>
+        <name>U%Maine</name>
+        <email>maine.edu</email>
+        <keyword>UMaine</keyword>
+    </organization>
+    <organization>
+        <name>U%of Maryland</name>
+        <email>umd.edu</email>
+        <email>umbc.edu</email>
+        <keyword>UMaryland</keyword>
+    </organization>
+    <organization>
+        <name>U%of Massachusetts</name>
+        <email>umass.edu</email>
+        <email>umb.edu</email>
+        <keyword>UMassachusetts</keyword>
+    </organization>
+    <organization>
+        <name>U%of Michigan</name>
+        <email>umich.edu</email>
+        <keyword>UMichigan</keyword>
+    </organization>
+    <organization>
+        <name>U%of Minnesota</name>
+        <email>umn.edu</email>
+        <keyword>UMinnesota</keyword>
+    </organization>
+    <organization>
+        <name>U%of Missouri</name>
+        <email>missouri.edu</email>
+        <keyword>UMissouri</keyword>
+    </organization>
+    <organization>
+        <name>U%of Montana</name>
+        <email>umt.edu</email>
+        <keyword>UMontana</keyword>
+    </organization>
+    <organization>
+        <name>U%Nevada</name>
+        <email>unlv.edu</email>
+        <email>unr.edu</email>
+        <keyword>UNevada</keyword>
+    </organization>
+    <organization>
+        <name>U%New Hampshire</name>
+        <email>unh.edu</email>
+        <keyword>UNewHampshire</keyword>
+    </organization>
+    <organization>
+        <name>U%New Mexico</name>
+        <name>U%NM</name>
+        <name>UNM</name>
+        <email>unm.edu</email>
+        <keyword>UNM</keyword>
+    </organization>
+    <organization>
+        <name>U%N%Caro</name>
+        <email>unc.edu</email>
+        <email>uncc.edu</email>
+        <email>uncg.edu</email>
+        <keyword>UNorthCarolina</keyword>
+    </organization>
+    <organization>
+        <name>U%Notre Dame</name>
+        <email>nd.edu</email>
+        <keyword>NotreDame</keyword>
+    </organization>
+    <organization>
+        <name>U%of Oklahoma</name>
+        <email>ou.edu</email>
+        <keyword>UOklahoma</keyword>
+    </organization>
+    <organization>
+        <name>U%of Oregon</name>
+        <email>uoregon.edu</email>
+        <keyword>UOregon</keyword>
+    </organization>
+    <organization>
+        <name>U%of Puerto Rico</name>
+        <email>upr.edu</email>
+        <keyword>UPuertoRico</keyword>
+    </organization>
+    <organization>
+        <name>U%of SC</name>
+        <name>U%of South Carolina</name>
+        <email>sc.edu</email>
+        <keyword>USouthCarolina</keyword>
+    </organization>
+    <organization>
+        <name>U%of Tennessee</name>
+        <email>utk.edu</email>
+        <keyword>UTennessee</keyword>
+    </organization>
+    <organization>
+        <name>U%of Texas</name>
+        <name>Texas%Brownsville</name>
+        <email>utexas.edu</email>
+        <email>utb.edu</email>
+        <email>utep.edu</email>
+        <keyword>UTexas</keyword>
+    </organization>
+    <organization>
+        <name>U%of Toronto</name>
+        <email>utoronto.ca</email>
+        <keyword>UToronto</keyword>
+    </organization>
+    <organization>
+        <name>U%of Vermont</name>
+        <name>UVM</name>
+        <email>uvm.edu</email>
+        <keyword>UVM</keyword>
+    </organization>
+    <organization>
+        <name>U%of Virginia</name>
+        <email>virginia.edu</email>
+        <keyword>UVirginia</keyword>
+    </organization>
+    <organization>
+        <name>U%of Washington</name>
+        <email>uw.edu</email>
+        <email>washington.edu</email>
+        <keyword>UWashington</keyword>
+    </organization>
+    <organization>
+        <name>U%of Wisconsin</name>
+        <name>UW%Madison</name>
+        <name>UW%Milwaukee</name>
+        <email>wisc.edu</email>
+        <email>uwm.edu</email>
+        <keyword>UWisconsin</keyword>
+    </organization>
+    <organization>
+        <name>U%of Wyoming</name>
+        <email>uwyo.edu</email>
+        <keyword>UWyoming</keyword>
+    </organization>
+    <organization>
+        <name>Utah State</name>
+        <email>usu.edu</email>
+        <keyword>UtahState</keyword>
+    </organization>
+    <organization>
+        <name>Villanova</name>
+        <email>villanova.edu</email>
+        <keyword>Villanova</keyword>
+    </organization>
+    <organization>
+        <name>Virginia Tech</name>
+        <name>Virginia Poly</name>
+        <email>vt.edu</email>
+        <keyword>VirginiaTech</keyword>
+    </organization>
+    <organization>
+        <name>Washington State</name>
+        <email>wsu.edu</email>
+        <keyword>WashingtonState</keyword>
+    </organization>
+    <organization>
+        <name>Washington U</name>
+        <email>wustl.edu</email>
+        <keyword>WashingtonU</keyword>
+    </organization>
+    <organization>
+        <name>West Virginia U</name>
+        <email>wvu.edu</email>
+        <keyword>WestVirginia</keyword>
+    </organization>
+    <organization>
+        <name>Wilkes U</name>
+        <email>.wilkes.edu</email>
+        <keyword>WilkesU</keyword>
+    </organization>
+    <organization>
+        <name>William and Mary</name>
+        <email>.wm.edu</email>
+        <email>/wm.edu</email>
+        <keyword>WilliamAndMary</keyword>
+    </organization>
+    <organization>
+        <name>Yale U</name>
+        <email>yale.edu</email>
+        <keyword>Yale</keyword>
+    </organization>
+</organizations>

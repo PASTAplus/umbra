@@ -1,0 +1,1127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persons>
+    <person>
+        <variant>
+            <surname>Abbot</surname>
+            <givenname>Benjamin</givenname>
+            <scope>knb-lter-arc</scope>
+        </variant>
+        <variant>
+            <surname>Abbott</surname>
+            <givenname>Benjamin</givenname>
+            <scope>knb-lter-arc</scope>
+        </variant>
+        <comment>BYU</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Anneville</surname>
+            <givenname>Orlane</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Anneville</surname>
+            <givenname>Orlane</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>France</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Avolio</surname>
+            <givenname>Meghan L</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Avolio</surname>
+            <givenname>Meghan</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Avolio</surname>
+            <givenname>Meghan</givenname>
+            <scope>knb-lter-knz</scope>
+        </variant>
+        <variant>
+            <surname>Avolio</surname>
+            <givenname>Megan</givenname>
+            <scope>knb-lter-bes</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Ball</surname>
+            <givenname>Becky A</givenname>
+            <scope>knb-lter-cwt</scope>
+        </variant>
+        <variant>
+            <surname>Ball</surname>
+            <givenname>Becky</givenname>
+            <scope>knb-lter-cap</scope>
+        </variant>
+        <variant>
+            <surname>Ball</surname>
+            <givenname>Becky</givenname>
+            <scope>knb-lter-mcm</scope>
+        </variant>
+        <comment>ASU; Dartmouth email has middle initial A</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Bestelmeyer</surname>
+            <givenname>Brandon</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+        <variant>
+            <surname>Bestelmeyer</surname>
+            <givenname>Brandon</givenname>
+            <scope>knb-lter-jrn</scope>
+        </variant>
+        <variant>
+            <surname>Bestelmeyer</surname>
+            <givenname>Brandon T</givenname>
+            <scope>knb-lter-jrn</scope>
+        </variant>
+        <comment>HFR package is a cross-site study including JRN</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Bowden</surname>
+            <givenname>William "Breck"</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Bowden</surname>
+            <givenname>Breck</givenname>
+            <scope>knb-lter-arc</scope>
+        </variant>
+        <variant>
+            <surname>Bowden</surname>
+            <givenname>William "Breck"</givenname>
+            <scope>knb-lter-arc</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Breckheimer</surname>
+            <givenname>Ian K</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Breckheimer</surname>
+            <givenname>Ian</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+        <comment>HFR and ORCID rec says Harvard</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Brzostek</surname>
+            <givenname>Edward</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+        <variant>
+            <surname>Brzostek</surname>
+            <givenname>Edward R</givenname>
+            <scope>edi</scope>
+        </variant>
+        <comment>Soil enzyme studies</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Caine</surname>
+            <givenname>T Nelson (Nel)</givenname>
+            <scope>knb-lter-nwt</scope>
+        </variant>
+        <variant>
+            <surname>Caine</surname>
+            <givenname>Nelson</givenname>
+            <scope>knb-lter-nwt</scope>
+        </variant>
+        <variant>
+            <surname>Caine</surname>
+            <givenname>Nel</givenname>
+            <scope>knb-lter-nwt</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Cavender-Bares</surname>
+            <givenname>Jeanine</givenname>
+            <scope>knb-lter-bes</scope>
+        </variant>
+        <variant>
+            <surname>Cavender-Bares</surname>
+            <givenname>Jeannine</givenname>
+            <scope>knb-lter-cdr</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Chung</surname>
+            <givenname>Anny</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Chung</surname>
+            <givenname>Y Anny</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Chung</surname>
+            <givenname>Anny</givenname>
+            <scope>knb-lter-sev</scope>
+        </variant>
+        <comment>Emails</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Classen</surname>
+            <givenname>Aimee T</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Classen</surname>
+            <givenname>Aimee</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Fergus</surname>
+            <givenname>C Emi</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Fergus</surname>
+            <givenname>CEmi</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Fergus</surname>
+            <givenname>C</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <variant>
+            <surname>Fergus</surname>
+            <givenname>Emi</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>ORCID and emails</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Frey</surname>
+            <givenname>Serita</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Frey</surname>
+            <givenname>Serita D</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Frey</surname>
+            <givenname>Serita</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+        <comment>New Hampshire, HFR</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Gaeta</surname>
+            <givenname>Jereme W</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Gaeta</surname>
+            <givenname>Jereme</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>Unusual name, EDI, NTL</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Halewood</surname>
+            <givenname>Elisa Walner</givenname>
+            <scope>knb-lter-sbc</scope>
+        </variant>
+        <variant>
+            <surname>Halewood</surname>
+            <givenname>Elisa R</givenname>
+            <scope>knb-lter-sbc</scope>
+        </variant>
+        <comment>UCSB</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Hamilton</surname>
+            <givenname>David P</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Hamilton</surname>
+            <givenname>David</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>waikato.ac.nz</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Handler</surname>
+            <givenname>Amalia M</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Handler</surname>
+            <givenname>Amalia</givenname>
+            <scope>knb-lter-cap</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Hansen</surname>
+            <givenname>Gretchen J A</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Hansen</surname>
+            <givenname>Gretchen</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>EDI, NTL</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Havstad</surname>
+            <givenname>Kris</givenname>
+            <scope>knb-lter-jrn</scope>
+        </variant>
+        <variant>
+            <surname>Havstad</surname>
+            <givenname>Kris M</givenname>
+            <scope>knb-lter-jrn</scope>
+        </variant>
+        <variant>
+            <surname>Havstad</surname>
+            <givenname>Kris</givenname>
+            <scope>knb-lter-sev</scope>
+        </variant>
+        <comment>JRN, SEV, New Mexico State University</comment>
+    </person>
+    <person>
+        <variant> 
+            <surname>Hein</surname>
+            <givenname>Catherine</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant> 
+            <surname>Hein</surname>
+            <givenname>Catherine L</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant> 
+            <surname>Hein</surname>
+            <givenname>Catherine</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>EDI, NTL</comment>
+    </person>
+    <person>
+        <variant> 
+            <surname>Helmus</surname>
+            <givenname>Matthew R</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant> 
+            <surname>Helmus</surname>
+            <givenname>Matt</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>EDI, NTL, email</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Herrick</surname>
+            <givenname>Jeff</givenname>
+            <scope>knb-lter-jrn</scope>
+        </variant>
+        <variant>
+            <surname>Herrick</surname>
+            <givenname>Jeffrey</givenname>
+            <scope>knb-lter-sev</scope>
+        </variant>
+        <comment>JRN, SEV, New Mexico State University</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Hewins</surname>
+            <givenname>Dan</givenname>
+            <scope>knb-lter-jrn</scope>
+        </variant>
+        <variant>
+            <surname>Hewins</surname>
+            <givenname>Daniel</givenname>
+            <scope>knb-lter-sev</scope>
+        </variant>
+        <comment>JRN, SEV</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Hicks Pries</surname>
+            <givenname>Caitlin Elizabeth</givenname>
+            <scope>knb-lter-bnz</scope>
+        </variant>
+        <variant>
+            <surname>Hicks Pries</surname>
+            <givenname>Caitlin E</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <comment>ORCID lookup</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Higgins</surname>
+            <givenname>Scott N</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Higgins</surname>
+            <givenname>Scott</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>Experimental Lakes Area</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Hobbie</surname>
+            <givenname>Sarah E</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Hobbie</surname>
+            <givenname>Sarah</givenname>
+            <scope>knb-lter-arc</scope>
+        </variant>
+        <variant>
+            <surname>Hobbie</surname>
+            <givenname>Sarah</givenname>
+            <scope>knb-lter-bes</scope>
+        </variant>
+        <variant>
+            <surname>Hobbie</surname>
+            <givenname>Sarah E</givenname>
+            <scope>knb-lter-bnz</scope>
+        </variant>
+        <variant>
+            <surname>Hobbie</surname>
+            <givenname>Sarah</givenname>
+            <scope>knb-lter-cdr</scope>
+        </variant>
+        <comment>Minnesota, CDR, ARC</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Huttula</surname>
+            <givenname>Timo H</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Huttula</surname>
+            <givenname>Timo</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>Unusual name, EDI, NTL</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Jevon</surname>
+            <givenname>Fiona V</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Jevon</surname>
+            <givenname>Fiona</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+        <comment>Unusual name, HBR, HFR</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Johnson</surname>
+            <givenname>Pieter</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <variant>
+            <surname>Johnson</surname>
+            <givenname>Pieter</givenname>
+            <scope>knb-lter-nwt</scope>
+        </variant>
+        <variant>
+            <surname>Johnson</surname>
+            <givenname>Pieter T</givenname>
+            <scope>knb-lter-nwt</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Jones</surname>
+            <givenname>Benjamin M</givenname>
+            <scope>knb-lter-ble</scope>
+        </variant>
+        <variant>
+            <surname>Jones</surname>
+            <givenname>Benjamin</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>Alaska</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Jorgenson</surname>
+            <givenname>Mark Torre</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Jorgenson</surname>
+            <givenname>Torre</givenname>
+            <scope>knb-lter-arc</scope>
+        </variant>
+        <comment>Alaska Ecoscience</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Juice</surname>
+            <givenname>Stephanie</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Juice</surname>
+            <givenname>Stephanie M</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Juice</surname>
+            <givenname>Stephanie</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+        <comment>Unusual name, HBR, HFR</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Knops</surname>
+            <givenname>Johannes M H</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Knops</surname>
+            <givenname>Johannes</givenname>
+            <scope>knb-lter-cdr</scope>
+        </variant>
+        <comment>ORCID lookup</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Komatsu</surname>
+            <givenname>Kimberly J</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Komatsu</surname>
+            <givenname>K J</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Komatsu</surname>
+            <givenname>Kimberly</givenname>
+            <scope>knb-lter-knz</scope>
+        </variant>
+        <comment>Smithsonian Environmental Research Center</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Koster</surname>
+            <givenname>Oliver</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Koster</surname>
+            <givenname>Oliver</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>Zurich</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Lany</surname>
+            <givenname>Nina K</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Lany</surname>
+            <givenname>Nina</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Lany</surname>
+            <givenname>Nina</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+        <comment>Single HFR outlier</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Lewis</surname>
+            <givenname>David</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Lewis</surname>
+            <givenname>David</givenname>
+            <scope>knb-lter-cap</scope>
+        </variant>
+        <variant>
+            <surname>Lewis</surname>
+            <givenname>David</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>ORCID and ORCID lookup</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Lodge</surname>
+            <givenname>D</givenname>
+            <scope>knb-lter-luq</scope>
+        </variant>
+        <variant>
+            <surname>Lodge</surname>
+            <givenname>D Jean</givenname>
+            <scope>knb-lter-luq</scope>
+        </variant>
+        <variant>
+            <surname>Lodge</surname>
+            <givenname>Jean</givenname>
+            <scope>knb-lter-luq</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Lyons</surname>
+            <givenname>Berry</givenname>
+            <scope>knb-lter-mcm</scope>
+        </variant>
+        <variant>
+            <surname>Lyons</surname>
+            <givenname>W Berry</givenname>
+            <scope>knb-lter-mcm</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>MacDougall</surname>
+            <givenname>Andrew</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>MacDougall</surname>
+            <givenname>A S</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>MacDougall</surname>
+            <givenname>A</givenname>
+            <scope>knb-lter-bnz</scope>
+        </variant>
+        <comment>Canada, Alaska</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>McDowell</surname>
+            <givenname>William</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>McDowell</surname>
+            <givenname>William H</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>McDowell</surname>
+            <givenname>William H</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>McDowell</surname>
+            <givenname>William H</givenname>
+            <scope>knb-lter-luq</scope>
+        </variant>
+        <comment>Canada, Alaska</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>McGlathery</surname>
+            <givenname>Karen</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>McGlathery</surname>
+            <givenname>Karen</givenname>
+            <scope>knb-lter-vcr</scope>
+        </variant>
+        <variant>
+            <surname>McGlathery</surname>
+            <givenname>Karen J</givenname>
+            <scope>knb-lter-vcr</scope>
+        </variant>
+        <comment>VCR</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>McKnight</surname>
+            <givenname>Diane M</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>McKnight</surname>
+            <givenname>Diane</givenname>
+            <scope>knb-lter-mcm</scope>
+        </variant>
+        <variant>
+            <surname>McKnight</surname>
+            <givenname>Diane</givenname>
+            <scope>knb-lter-nwt</scope>
+        </variant>
+        <comment>INSTAAR, email</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Nelson</surname>
+            <givenname>Clint J</givenname>
+            <scope>knb-lter-sbc</scope>
+        </variant>
+        <variant>
+            <surname>Nelson</surname>
+            <givenname>J Clint</givenname>
+            <scope>knb-lter-sbc</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Nelson</surname>
+            <givenname>Michael</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Nelson</surname>
+            <givenname>Michael P</givenname>
+            <scope>knb-lter-and</scope>
+        </variant>
+        <comment>ORCID - see personnel, not just creators</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>O'Reilly</surname>
+            <givenname>Catherine M</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>O'Reilly</surname>
+            <givenname>Catherine</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>EDI and NTL</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Ollinger</surname>
+            <givenname>Scott V</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Ollinger</surname>
+            <givenname>Scott V</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Ollinger</surname>
+            <givenname>Scott</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Ollinger</surname>
+            <givenname>Scott</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+        <comment></comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Paterson</surname>
+            <givenname>Andrew M</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Paterson</surname>
+            <givenname>Andrew</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>Ontario Ministry of the Environment</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Plisnier</surname>
+            <givenname>Pierre-Denis</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Plisnier</surname>
+            <givenname>Pierre-Denis</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <variant>
+            <surname>Plisnier</surname>
+            <givenname>Pierre-Denise</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment></comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Porter</surname>
+            <givenname>John H</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Porter</surname>
+            <givenname>John</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Porter</surname>
+            <givenname>John</givenname>
+            <scope>knb-lter-nwk</scope>
+        </variant>
+        <variant>
+            <surname>Porter</surname>
+            <givenname>John</givenname>
+            <scope>knb-lter-vcr</scope>
+        </variant>
+        <comment></comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Raymond</surname>
+            <givenname>Peter</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Raymond</surname>
+            <givenname>Peter A</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Raymond</surname>
+            <givenname>Peter</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+        <comment>Yale, HFR</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Reich</surname>
+            <givenname>Peter B</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Reich</surname>
+            <givenname>Peter</givenname>
+            <scope>knb-lter-cdr</scope>
+        </variant>
+        <comment></comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Rocha</surname>
+            <givenname>Adrian</givenname>
+            <scope>knb-lter-arc</scope>
+        </variant>
+        <variant>
+            <surname>Rocha</surname>
+            <givenname>Adrian V</givenname>
+            <scope>knb-lter-bnz</scope>
+        </variant>
+        <comment>ARC, BNZ</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Schmitt</surname>
+            <givenname>Russell</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Schmitt</surname>
+            <givenname>Russell</givenname>
+            <scope>knb-lter-mcr</scope>
+        </variant>
+        <variant>
+            <surname>Schmitt</surname>
+            <givenname>Russell J</givenname>
+            <scope>knb-lter-sbc</scope>
+        </variant>
+        <comment>UCSB, SBC, Tahiti</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Schuur</surname>
+            <givenname>Edward AG</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Schuur</surname>
+            <givenname>Edward</givenname>
+            <scope>knb-lter-arc</scope>
+        </variant>
+        <variant>
+            <surname>Schuur</surname>
+            <givenname>Edward</givenname>
+            <scope>knb-lter-bnz</scope>
+        </variant>
+        <comment>Email similarity</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Silow</surname>
+            <givenname>Eugene A</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Silow</surname>
+            <givenname>Eugene</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>Irkutsk</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Smith</surname>
+            <givenname>Melinda D</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Smith</surname>
+            <givenname>Melinda</givenname>
+            <scope>knb-lter-knz</scope>
+        </variant>
+        <variant>
+            <surname>Smith</surname>
+            <givenname>Melinda D</givenname>
+            <scope>knb-lter-nwk</scope>
+        </variant>
+        <variant>
+            <surname>Smith</surname>
+            <givenname>Melinda</givenname>
+            <scope>knb-lter-sev</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Sokol</surname>
+            <givenname>Eric R</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Sokol</surname>
+            <givenname>Eric</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Sokol</surname>
+            <givenname>Eric</givenname>
+            <scope>knb-lter-mcm</scope>
+        </variant>
+        <variant>
+            <surname>Sokol</surname>
+            <givenname>Eric</givenname>
+            <scope>knb-lter-nwt</scope>
+        </variant>
+        <comment>Colorado, ORCID</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Suding</surname>
+            <givenname>Katharine</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Suding</surname>
+            <givenname>Katharine N</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Suding</surname>
+            <givenname>Katharine N</givenname>
+            <scope>knb-lter-nwt</scope>
+        </variant>
+        <comment>Emails</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Taylor</surname>
+            <givenname>D Lee</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Taylor</surname>
+            <givenname>D Lee</givenname>
+            <scope>knb-lter-bnz</scope>
+        </variant>
+        <variant>
+            <surname>Taylor</surname>
+            <givenname>Lee</givenname>
+            <scope>knb-lter-bnz</scope>
+        </variant>
+        <comment>Emails</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Templer</surname>
+            <givenname>Pamela</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Templer</surname>
+            <givenname>Pamela</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+        <variant>
+            <surname>Templer</surname>
+            <givenname>Pamela H</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <comment>BU, HBR, HFR</comment>
+    </person>    
+    <person>
+        <variant>
+            <surname>Vernberg</surname>
+            <givenname>F John</givenname>
+            <scope>knb-lter-nin</scope>
+        </variant>
+        <variant>
+            <surname>Vernberg</surname>
+            <givenname>John</givenname>
+            <scope>knb-lter-nin</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>von Holle</surname>
+            <givenname>Betsy</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Von Holle</surname>
+            <givenname>Betsy</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+        <comment>Capitalization</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Walker</surname>
+            <givenname>Donald</givenname>
+            <scope>knb-lter-arc</scope>
+        </variant>
+        <variant>
+            <surname>Walker</surname>
+            <givenname>Donald (Skip)</givenname>
+            <scope>knb-lter-nwt</scope>
+        </variant>
+        <variant>
+            <surname>Walker</surname>
+            <givenname>Donald A (Skip)</givenname>
+            <scope>knb-lter-nwt</scope>
+        </variant>
+        <comment>Arctic, Alaska</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Warren</surname>
+            <givenname>R Scott</givenname>
+            <scope>knb-lter-pie</scope>
+        </variant>
+        <variant>
+            <surname>Warren</surname>
+            <givenname>Scott</givenname>
+            <scope>knb-lter-pie</scope>
+        </variant>
+        <comment>Address</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Welker</surname>
+            <givenname>Jeff</givenname>
+            <scope>knb-lter-arc</scope>
+        </variant>
+        <variant>
+            <surname>Welker</surname>
+            <givenname>Jeffrey M</givenname>
+            <scope>knb-lter-nwt</scope>
+        </variant>
+        <comment>Alaska</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Wieder</surname>
+            <givenname>William R</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Wieder</surname>
+            <givenname>Will</givenname>
+            <scope>knb-lter-nwt</scope>
+        </variant>
+        <comment>UCAR, colorado.edu</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Wilkinson</surname>
+            <givenname>Grace</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Wilkinson</surname>
+            <givenname>Grace M</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Wilkinson</surname>
+            <givenname>Grace</givenname>
+            <scope>knb-lter-vcr</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Woolway</surname>
+            <givenname>R Iestyn</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Woolway</surname>
+            <givenname>Iestyn</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>Address</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Wragg</surname>
+            <givenname>Peter D</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Wragg</surname>
+            <givenname>Peter</givenname>
+            <scope>knb-lter-cdr</scope>
+        </variant>
+    </person>
+</persons>

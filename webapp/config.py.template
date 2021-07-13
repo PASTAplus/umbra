@@ -1,0 +1,39 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+:Mod: config
+
+:Synopsis:
+
+:Author:
+    ide
+
+:Created:
+    7/7/21
+"""
+
+
+class Config(object):
+
+    BASE_FOLDER = '<base folder>'
+    DATA_FILES_PATH = f'{BASE_FOLDER}/data'
+    EML_FILES_PATH = f'{BASE_FOLDER}/eml_files'
+    POSSIBLE_DUPS_FILES_PATH = f'{DATA_FILES_PATH}/possible_dups_results'
+
+    LOG_FILE = 'umbra.log'
+
+    NICKNAMES_FILE = 'corrections_nicknames.xml'
+    ORCID_CORRECTIONS_FILE = 'corrections_orcids.xml'
+    ORGANIZATIONS_FILE = 'organizations.xml'
+    OVERRIDES_FILE = 'corrections_overrides.xml'
+    PERSON_VARIANTS_FILE = 'corrections_name_variants.xml'
+
+    RESPONSIBLE_PARTIES_TEXT_FILE = 'responsible_parties.txt'
+    RESPONSIBLE_PARTIES_TABLE_NAME = 'eml_files.responsible_parties'
+    RESPONSIBLE_PARTIES_RAW_TABLE_NAME = 'eml_files.responsible_parties_raw'
+
+    DB_HOST = 'localhost'
+    DB_NAME = 'normal_names'
+    DB_PASSWORD = '<secret password>'
+    DB_USER = 'pasta'

@@ -1,0 +1,291 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+:Mod: creators
+
+:Synopsis:
+    REST APIs for retrieving and normalizing names of creators of data packages in the EDI data repository.
+
+    To get all creators' names:
+        GET creators/names
+
+        Response is a list in JSON format:
+            ["Abbaszadegan, Morteza","Abbott, Benjamin", ... ]
+
+    To get all variants of a name:
+        GET creators/name_variants/<name>
+        where <name> is a name in the form it appears in the all-names list, e.g.,
+            GET creators/name_variants/McKnight, Diane M
+
+        Response is a list in JSON format:
+            ["McKnight, Diane","McKnight, Diane M","Mcknight, Diane","Mcnight, Diane"]
+
+    To update the database with names for creators of data packages added since the last update:
+        POST creators/names
+
+:Author:
+    ide
+
+:Created:
+    6/1/21
+"""
+
+from datetime import datetime, date, timedelta
+import glob
+import os
+import requests
+
+import daiquiri
+from flask import (
+    Flask, Blueprint, jsonify, request, current_app
+)
+import xml.etree.ElementTree as ET
+
+from config import Config
+import corrections
+import propagate_names
+
+creators_bp = Blueprint('creators_bp', __name__)
+
+creator_names = {}
+logger = daiquiri.getLogger(Config.LOG_FILE)
+
+
+def log_info(msg):
+    app = Flask(__name__)
+    with app.app_context():
+        current_app.logger.info(msg)
+
+
+def log_error(msg):
+    app = Flask(__name__)
+    with app.app_context():
+        current_app.logger.error(msg)
+
+
+@creators_bp.before_app_first_request
+def init_names():
+    global creator_names
+
+    creator_names = {}
+    with open(f'{Config.DATA_FILES_PATH}/creator_names.txt', 'r') as names_file:
+        lines = names_file.readlines()
+    for line in lines:
+        line = line.strip()
+        substrs = line.split('  --> ')
+        canonical_name = substrs[0]
+        if len(substrs) > 1:
+            givenname_variants = substrs[1].split(' | ')
+        else:
+            givenname_variants = None
+        if not givenname_variants:
+            creator_names[canonical_name] = [canonical_name]
+        else:
+            substrs = canonical_name.split(', ')
+            surname = substrs[0].replace("'", "''")
+            name_variants = []
+            for givenname in givenname_variants:
+                name_variants.append(f"{surname}, {givenname}")
+            creator_names[canonical_name] = name_variants
+
+    # Names that have been overridden (e.g., typos) need to be included in the list of variants
+    #  associated with a canonical name so that their data packages will be found in a search
+    override_corrections = corrections.init_override_corrections()
+    override_lookup = {}
+    for override_correction in override_corrections:
+        surname = override_correction.surname
+        givenname = override_correction.givenname
+        original_surname = override_correction.original_surname
+        original_givenname = override_correction.original_givenname
+        original_surname_raw = override_correction.original_surname_raw
+        lookup = override_lookup.get(f"{surname}, {givenname}", [])
+        lookup.append(
+            f"{original_surname_raw if original_surname_raw else original_surname}, {original_givenname}")
+        override_lookup[f"{surname}, {givenname}"] = lookup
+    for name, variants in creator_names.items():
+        for variant in variants:
+            if override_lookup.get(variant):
+                for raw_variant in override_lookup.get(variant):
+                    variants.append(raw_variant)
+
+
+def save_last_update_date(now):
+    last_update_path = f'{Config.DATA_FILES_PATH}/last_update.txt'
+    with open(last_update_path, 'w') as last_update_file:
+        last_update_file.write(now.strftime("%Y-%m-%d"))
+
+
+def get_existing_eml_files():
+    filelist = glob.glob(f'{Config.EML_FILES_PATH}/*.xml')
+    package_ids = []
+    for filename in filelist:
+        filename = os.path.basename(filename)
+        root, ext = os.path.splitext(filename)
+        package_ids.append(root)
+    return package_ids
+
+
+def parse_package_id(package_id):
+    substrs = package_id.split('.')
+    return substrs
+
+
+def delete_earlier_revisions(existing_package_ids, scope, identifier, revision, removed_package_ids):
+    for package_id in existing_package_ids:
+        this_scope, this_identifier, this_revision = parse_package_id(package_id)
+        if this_scope == scope and this_identifier == identifier:
+            if int(this_revision) < int(revision):
+                removing = f'{scope}.{identifier}.{this_revision}'
+                filename = f'{Config.EML_FILES_PATH}/{removing}.xml'
+                try:
+                    log_info(f'removing {removing}')
+                    # print(f'removing {removing}')
+                    removed_package_ids.append(removing)
+                    os.remove(filename)
+                except FileNotFoundError:
+                    # We may have already deleted this file on an earlier pass
+                    pass
+
+
+def delete_old_revisions(removed_package_ids):
+    package_ids = get_existing_eml_files()
+    identifiers = {}
+    for package_id in package_ids:
+        scope, identifier, revision = parse_package_id(package_id)
+        revisions = identifiers.get((scope, identifier), [])
+        revisions.append(revision)
+        identifiers[(scope, identifier)] = revisions
+    for key, revisions in identifiers.items():
+        if len(revisions) > 1:
+            scope, identifier = key
+            for revision in revisions:
+                delete_earlier_revisions(package_ids, scope, identifier, revision, removed_package_ids)
+
+
+def get_changes():
+    # See what the from date is
+    from_date = '2021-06-20'
+    last_update_path = f'{Config.DATA_FILES_PATH}/last_update.txt'
+    if os.path.exists(last_update_path):
+        with open(last_update_path, 'r') as last_update_file:
+            from_date = last_update_file.readline().strip()
+    now = datetime.now()
+    # Get changes since the from date
+    url = f'https://pasta.lternet.edu/package/changes/eml?fromDate={from_date}'
+    log_info(f'getting changes from PASTA: {url}')
+    added_package_ids = []
+    removed_package_ids = []
+    updates = requests.get(url).text
+    if not updates:
+        return
+    root = ET.fromstring(updates)
+    package_id_elements = root.findall('./dataPackage/packageId')
+    for package_id_element in package_id_elements:
+        added_package_ids.append(package_id_element.text)
+    existing_package_ids = get_existing_eml_files()
+    for package_id in added_package_ids:
+        if package_id in existing_package_ids:
+            continue
+        log_info(f'adding {package_id}')
+        scope, identifier, revision = parse_package_id(package_id)
+        # If revision > 1, delete older revisions
+        if int(revision) > 1:
+            delete_earlier_revisions(existing_package_ids, scope, identifier, revision, removed_package_ids)
+        existing_package_ids.append(package_id)
+        # Get the EML and save as xml file
+        url = f'https://pasta.lternet.edu/package/metadata/eml/{scope}/{identifier}/{revision}'
+        log_info(f'getting EML from PASTA:  {url}')
+        eml = requests.get(url).text
+        filename = f'{Config.EML_FILES_PATH}/{scope}.{identifier}.{revision}.xml'
+        with open(filename, 'w') as xml_file:
+            xml_file.write(eml)
+    delete_old_revisions(removed_package_ids)
+    save_last_update_date(now)
+    return added_package_ids, removed_package_ids
+
+
+def update_creator_names():
+    log_info(f"update_creator_names")
+    added_package_ids, removed_package_ids = get_changes()
+    propagate_names.gather_and_prepare_data(added_package_ids, removed_package_ids)
+    propagate_names.process_names()
+    init_names()
+    log_info(f"leaving update_creator_names")
+
+
+@creators_bp.route('/names', methods=['GET', 'POST'])
+def names():
+    if request.method == 'POST':
+        update_creator_names()
+    return jsonify(sorted(list(creator_names.keys()), key=str.casefold)), 200
+
+
+@creators_bp.route('/name_variants/<name>', methods=['GET'])
+def variants(name):
+    name_variants = creator_names.get(name, None)
+    if name_variants:
+        return jsonify(name_variants), 200
+    else:
+        return (f'Name "{name}" not found'), 400
+
+
+def get_old_dups(flush=False):
+    filelist = sorted(glob.glob(f'{Config.POSSIBLE_DUPS_FILES_PATH}/possible_dups_*.txt'))
+    dups = {}
+    if filelist:
+        old_dups_filename = filelist[0]
+        with open(old_dups_filename, 'r') as dups_file:
+            dups = eval(dups_file.read())
+        if flush:
+            for filename in filelist:
+                os.remove(filename)
+    dups_dict = {}
+    for dup in dups:
+        surname, givennames = dup.split(': ')
+        dups_dict[surname.replace('** ', '')] = givennames
+    return dups_dict
+
+
+@creators_bp.route('/possible_dups', methods=['GET', 'POST'])
+def possible_dups():
+    flush = request.method == 'POST'
+    output = []
+    names = sorted(list(creator_names.keys()), key=str.casefold)
+    prev_surname = None
+    old_dups = get_old_dups(flush)
+    givennames = []
+    for name in names:
+        surname, givenname = name.split(', ')
+        if not prev_surname:
+            prev_surname = surname
+        if prev_surname and surname != prev_surname:
+            if len(givennames) > 1:
+                out_givennames = ', '.join(givennames)
+                mark_change = ''
+                if old_dups and not flush:
+                    if not old_dups.get(prev_surname):
+                        mark_change = '** '
+                    elif old_dups.get(prev_surname) != out_givennames:
+                        mark_change = '** '
+                output.append(f"{mark_change}{prev_surname}: {out_givennames}")
+            prev_surname = surname
+            givennames = [givenname]
+        else:
+            givennames.append(givenname)
+    # Go thru and get all the lines with change markers and prepend them to the output
+    changes = []
+    for outline in output:
+        if '** ' in outline:
+            changes.append(outline.replace('** ', ''))
+    if changes:
+        output = changes + ['=================================================='] + output
+    output = jsonify(output)
+
+    # Save output in a file for comparison later
+    timestamp = datetime.now().date().strftime('%Y_%m_%d') + '__' + datetime.now().time().strftime('%H_%M_%S')
+    filename = f"possible_dups_{timestamp}.txt"
+    with open(f"{Config.POSSIBLE_DUPS_FILES_PATH}/{filename}", 'w') as dups_file:
+        dups_file.write(str(output.json))
+    return output
+

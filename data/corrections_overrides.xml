@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<overrides>
+    <override>
+        <original>
+            <surname>Abbot</surname>
+            <givenname>Benjamin</givenname>
+        </original>
+        <corrected>
+            <surname>Abbott</surname>
+            <givenname>Benjamin</givenname>
+        </corrected>
+        <scope>knb-lter-arc</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Adams (formerly Teeling%</surname>
+            <surname_raw>Adams (formerly Teeling and
+                Teeling-Adams)</surname_raw>
+            <givenname>Leslie M</givenname>
+        </original>
+        <corrected>
+            <surname>Adams</surname>
+            <givenname>Leslie M</givenname>
+        </corrected>
+        <scope>knb-lter-hbr</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Fisk</surname>
+            <givenname>Melanie</givenname>
+        </original>
+        <corrected>
+            <surname>Fisk</surname>
+            <givenname>Melany</givenname>
+        </corrected>
+        <scope>knb-lter-nwt</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Hicks-Pries</surname>
+            <givenname>Caitlin Elizabeth</givenname>
+        </original>
+        <corrected>
+            <surname>Hicks Pries</surname>
+            <givenname>Caitlin Elizabeth</givenname>
+        </corrected>
+        <scope>knb-lter-bnz</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Johannson</surname>
+            <givenname>Mattias L</givenname>
+        </original>
+        <corrected>
+            <surname>Johansson</surname>
+            <givenname>Mattias L</givenname>
+        </corrected>
+        <scope>knb-lter-sbc</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Koster</surname>
+            <givenname>Olivier</givenname>
+        </original>
+        <corrected>
+            <surname>Koster</surname>
+            <givenname>Oliver</givenname>
+        </corrected>
+        <scope>knb-lter-ntl</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Lottig</surname>
+            <givenname>Noah A</givenname>
+        </original>
+        <corrected>
+            <surname>Lottig</surname>
+            <givenname>Noah R</givenname>
+        </corrected>
+        <scope>knb-lter-ntl</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Mcknight</surname>
+            <givenname>Diane</givenname>
+        </original>
+        <corrected>
+            <surname>McKnight</surname>
+            <givenname>Diane</givenname>
+        </corrected>
+        <scope>knb-lter-nwt</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Mcnight</surname>
+            <givenname>Diane</givenname>
+        </original>
+        <corrected>
+            <surname>McKnight</surname>
+            <givenname>Diane</givenname>
+        </corrected>
+        <scope>knb-lter-nwt</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Meredith</surname>
+            <givenname>Micheal</givenname>
+        </original>
+        <corrected>
+            <surname>Meredith</surname>
+            <givenname>Michael</givenname>
+        </corrected>
+        <scope>knb-lter-pal</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Moore</surname>
+            <givenname>Jessica A      M</givenname>
+        </original>
+        <corrected>
+            <surname>Moore</surname>
+            <givenname>Jessica A M</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Morgan%</surname>
+            <surname_raw>Morgan,</surname_raw>
+            <givenname>John W</givenname>
+        </original>
+        <corrected>
+            <surname>Morgan</surname>
+            <givenname>John W</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Morse</surname>
+            <givenname>Jennfier F</givenname>
+        </original>
+        <corrected>
+            <surname>Morse</surname>
+            <givenname>Jennifer F</givenname>
+        </corrected>
+        <scope>knb-lter-nwt</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Nickerson</surname>
+            <givenname>David middleInitial</givenname>
+        </original>
+        <corrected>
+            <surname>Nickerson</surname>
+            <givenname>David</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Nobel</surname>
+            <givenname>Jennifer</givenname>
+        </original>
+        <corrected>
+            <surname>Noble</surname>
+            <givenname>Jennifer</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
+            <surname>O'Neil Dunne</surname>
+            <givenname>Jarlath</givenname>
+        </original>
+        <corrected>
+            <surname>O'Neil-Dunne</surname>
+            <givenname>Jarlath</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
+            <surname>O'Neal-Dunne</surname>
+            <givenname>Jarlath</givenname>
+        </original>
+        <corrected>
+            <surname>O'Neil-Dunne</surname>
+            <givenname>Jarlath</givenname>
+        </corrected>
+        <scope>knb-lter-bes</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Ochoa Hueso</surname>
+            <givenname>Raul</givenname>
+        </original>
+        <corrected>
+            <surname>Ochoa-Hueso</surname>
+            <givenname>Raul</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Quintana Ascencio</surname>
+            <givenname>Pedro F</givenname>
+        </original>
+        <corrected>
+            <surname>Quintana-Ascencio</surname>
+            <givenname>Pedro F</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Sanders-Demott</surname>
+            <givenname>Rebecca</givenname>
+        </original>
+        <corrected>
+            <surname>Sanders-DeMott</surname>
+            <givenname>Rebecca</givenname>
+        </corrected>
+        <scope>knb-lter-hbr</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Sokal</surname>
+            <givenname>Eric</givenname>
+        </original>
+        <corrected>
+            <surname>Sokol</surname>
+            <givenname>Eric</givenname>
+        </corrected>
+        <scope>knb-lter-nwt</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Suding</surname>
+            <givenname>Katherine</givenname>
+        </original>
+        <corrected>
+            <surname>Suding</surname>
+            <givenname>Katharine</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Suding</surname>
+            <givenname>Katherine N</givenname>
+        </original>
+        <corrected>
+            <surname>Suding</surname>
+            <givenname>Katharine N</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Temple</surname>
+            <givenname>Trishelle</givenname>
+            <email>Trishelle.temple@wildlife.ca.gov</email>
+        </original>
+        <corrected>
+            <surname>Tempel</surname>
+            <givenname>Trishelle</givenname>
+            <email>Trishelle.tempel@wildlife.ca.gov</email>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Zarnetske</surname>
+            <givenname>Pheobe L</givenname>
+        </original>
+        <corrected>
+            <surname>Zarnetske</surname>
+            <givenname>Phoebe L</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+</overrides>

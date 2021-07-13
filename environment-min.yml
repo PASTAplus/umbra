@@ -1,0 +1,14 @@
+name: umbra
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.8
+  - daiquiri
+  - flask
+  - requests
+  - lxml
+  - multidict
+  - psycopg2
+  - textacy
+prefix: /Users/jide/anaconda3/envs/umbra
