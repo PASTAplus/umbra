@@ -118,4 +118,5 @@ dependencies:
     - recordclass==0.14.3
     - rfc3986==1.5.0
     - visitor==0.1.3
+    - metapype==0.0.3
 prefix: /Users/jide/anaconda3/envs/umbra
