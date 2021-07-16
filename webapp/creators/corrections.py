@@ -20,7 +20,7 @@
 """
 from lxml import etree
 
-from config import Config
+from webapp.config import Config
 
 
 class Override:

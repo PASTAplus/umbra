@@ -42,9 +42,9 @@ from flask import (
 )
 import xml.etree.ElementTree as ET
 
-from config import Config
-import corrections
-import propagate_names
+from webapp.config import Config
+import webapp.creators.corrections as corrections
+import webapp.creators.propagate_names as propagate_names
 
 creators_bp = Blueprint('creators_bp', __name__)
 

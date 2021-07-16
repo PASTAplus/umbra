@@ -17,8 +17,9 @@
 
 import psycopg2
 
-from config import Config
-import corrections
+from webapp.config import Config
+import webapp.creators.corrections as corrections
+
 import nlp
 import utils
 

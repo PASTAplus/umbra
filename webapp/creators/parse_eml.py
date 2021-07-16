@@ -20,11 +20,12 @@ import pickle
 
 from recordclass import recordclass
 
-from config import Config
-import db
+from webapp.config import Config
+import webapp.creators.db as db
+import webapp.creators.nlp as nlp
+
 from metapype.eml import names
 from metapype.model.metapype_io import from_xml
-import nlp
 
 
 class EMLTextComponents(Enum):

@@ -18,11 +18,12 @@ from lxml import etree
 from multidict import CIMultiDict
 from recordclass import recordclass
 
-from config import Config
-import corrections
-import db
-import nlp
-import parse_eml
+from webapp.config import Config
+
+import webapp.creators.corrections as corrections
+import webapp.creators.db as db
+import webapp.creators.nlp as nlp
+import webapp.creators.parse_eml as parse_eml
 
 '''
 A NamedPerson object represents a responsible party who may have multiple names, organizations, etc., but is deemed to
