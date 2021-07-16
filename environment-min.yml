@@ -1,7 +1,7 @@
 name: umbra
 channels:
-  - defaults
   - conda-forge
+  - defaults
 dependencies:
   - python=3.8
   - daiquiri
@@ -11,4 +11,13 @@ dependencies:
   - multidict
   - psycopg2
   - textacy
+  - uwsgi
+  - pip
+  - pip:
+    - dominate
+    - flask-bootstrap
+    - recordclass
+    - rfc3986
+    - visitor
+    - metapype
 prefix: /Users/jide/anaconda3/envs/umbra
