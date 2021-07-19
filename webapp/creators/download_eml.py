@@ -185,7 +185,7 @@ async def get_all_eml_async():
 
 
 def get_all():
-    await get_all_eml_async()
+    asyncio.run(get_all_eml_async())
 
 
 if __name__ == '__main__':
