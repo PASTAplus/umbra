@@ -20,8 +20,8 @@ import psycopg2
 from webapp.config import Config
 import webapp.creators.corrections as corrections
 
-import nlp
-import utils
+import webapp.creators.nlp as nlp
+import webapp.creators.utils as utils
 
 
 def get_conn():
