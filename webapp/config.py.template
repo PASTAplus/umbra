@@ -34,6 +34,6 @@ class Config(object):
     RESPONSIBLE_PARTIES_RAW_TABLE_NAME = 'eml_files.responsible_parties_raw'
 
     DB_HOST = 'localhost'
-    DB_NAME = 'normal_names'
+    DB_NAME = 'pasta'
     DB_PASSWORD = '<secret password>'
     DB_USER = 'pasta'

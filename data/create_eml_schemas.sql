@@ -45,15 +45,3 @@ CREATE TABLE eml_files.responsible_parties (
     skip BOOLEAN
   );
 
-CREATE TABLE eml_files.orcid_stats (
-    givenname VARCHAR(100),
-    surname VARCHAR(100),
-    searchname VARCHAR(100),
-    num_candidates INT8,
-    num_hits INT8,
-    candidates VARCHAR(4096),
-    hits VARCHAR(4096), 
-    orcid VARCHAR(20)
-);
-
-
