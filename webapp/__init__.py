@@ -17,7 +17,7 @@ import daiquiri
 from flask import Flask, session
 from flask_bootstrap import Bootstrap
 
-from config import Config
+from webapp.config import Config
 
 cwd = os.path.dirname(os.path.realpath(__file__))
 logfile = Config.LOG_FILE
