@@ -21,7 +21,7 @@ import requests
 import sys
 
 PASTA_BASE = 'https://pasta.lternet.edu'
-EML_FILES_PATH = '../eml_files'
+EML_FILES_PATH = '../../eml_files'
 MAX_RETRIES = 5
 
 TO_SKIP = ['ecotrends', 'msb-cap', 'msb-paleon', 'msb-tempbiodev', 'lter-landsat', 'lter-landsat-ledaps']
