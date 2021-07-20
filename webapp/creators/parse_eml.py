@@ -31,6 +31,8 @@ import webapp.creators.nlp as nlp
 
 from metapype.eml import names
 from metapype.model.metapype_io import from_xml
+from metapype.model.node import Node
+
 
 logger = daiquiri.getLogger(Config.LOG_FILE)
 
@@ -394,7 +396,9 @@ def collect_responsible_parties(filename, added_package_ids=None, removed_packag
                 for responsible_party in responsible_parties:
                     output_file.write(str(responsible_party))
                     output_file.write('\n')
-                    # output_file.flush()
+                    output_file.flush()
+                # We're done with the JSON model. Delete it so we don't run out of memory.
+                Node.delete_node_instance(eml_node.id, True)
 
 
 def collect_titles_and_abstracts(output_filename):
