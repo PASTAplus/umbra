@@ -394,7 +394,7 @@ def collect_responsible_parties(filename, added_package_ids=None, removed_packag
                 for responsible_party in responsible_parties:
                     output_file.write(str(responsible_party))
                     output_file.write('\n')
-                    output_file.flush()
+                    # output_file.flush()
 
 
 def collect_titles_and_abstracts(output_filename):

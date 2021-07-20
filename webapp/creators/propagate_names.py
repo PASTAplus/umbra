@@ -13,6 +13,7 @@
     6/1/21
 """
 
+import os
 import daiquiri
 from flask import (
     Flask, Blueprint, jsonify, request, current_app
@@ -595,6 +596,7 @@ def set_organization_keywords_in_db():
 
 def init_responsible_parties_raw_db():
     filename = Config.RESPONSIBLE_PARTIES_TEXT_FILE
+    os.remove(f'{Config.EML_FILES_PATH}/{filename}')
     log_info('Collect responsible parties')
     parse_eml.collect_responsible_parties(filename, trace=True)
 
