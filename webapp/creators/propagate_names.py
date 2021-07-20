@@ -13,6 +13,11 @@
     6/1/21
 """
 
+import daiquiri
+from flask import (
+    Flask, Blueprint, jsonify, request, current_app
+)
+
 from lxml import etree
 
 from multidict import CIMultiDict
@@ -24,6 +29,21 @@ import webapp.creators.corrections as corrections
 import webapp.creators.db as db
 import webapp.creators.nlp as nlp
 import webapp.creators.parse_eml as parse_eml
+
+logger = daiquiri.getLogger(Config.LOG_FILE)
+
+
+def log_info(msg):
+    app = Flask(__name__)
+    with app.app_context():
+        current_app.logger.info(msg)
+
+
+def log_error(msg):
+    app = Flask(__name__)
+    with app.app_context():
+        current_app.logger.error(msg)
+
 
 '''
 A NamedPerson object represents a responsible party who may have multiple names, organizations, etc., but is deemed to
@@ -575,14 +595,18 @@ def set_organization_keywords_in_db():
 
 def init_responsible_parties_raw_db():
     filename = Config.RESPONSIBLE_PARTIES_TEXT_FILE
+    log_info('Collect responsible parties')
     parse_eml.collect_responsible_parties(filename)
 
+    log_info('Clear raw responsible parties db')
     conn = db.get_conn()
     with conn.cursor() as cur:
         query = f'delete from {Config.RESPONSIBLE_PARTIES_RAW_TABLE_NAME}'
         cur.execute(query)
 
+    log_info('Build raw responsible parties db')
     db.build_responsible_party_raw_db(filename)
+    log_info('Remove duplicates from raw responsible parties db')
     db.remove_duplicate_records(table_name=Config.RESPONSIBLE_PARTIES_RAW_TABLE_NAME)
 
 
