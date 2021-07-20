@@ -649,7 +649,7 @@ def create_person_variants_lookup(person_variants):
 
 
 if __name__ == '__main__':
-    init_responsible_parties_raw_db()
+    # init_responsible_parties_raw_db()
     pass
 
 

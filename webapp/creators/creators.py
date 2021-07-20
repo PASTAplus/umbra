@@ -289,3 +289,8 @@ def possible_dups():
         dups_file.write(str(output.json))
     return output
 
+
+@creators_bp.route('/init_raw_db', methods=['POST'])
+def init_raw_db():
+    propagate_names.init_responsible_parties_raw_db()
+
