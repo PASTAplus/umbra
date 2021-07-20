@@ -18,6 +18,11 @@ import glob
 import os
 import pickle
 
+import daiquiri
+from flask import (
+    Flask, Blueprint, jsonify, request, current_app
+)
+
 from recordclass import recordclass
 
 from webapp.config import Config
@@ -26,6 +31,20 @@ import webapp.creators.nlp as nlp
 
 from metapype.eml import names
 from metapype.model.metapype_io import from_xml
+
+logger = daiquiri.getLogger(Config.LOG_FILE)
+
+
+def log_info(msg):
+    app = Flask(__name__)
+    with app.app_context():
+        current_app.logger.info(msg)
+
+
+def log_error(msg):
+    app = Flask(__name__)
+    with app.app_context():
+        current_app.logger.error(msg)
 
 
 class EMLTextComponents(Enum):
@@ -346,7 +365,7 @@ def parse_eml_file(filename):
     return pid, eml_node
 
 
-def collect_responsible_parties(filename, added_package_ids=None, removed_package_ids=None):
+def collect_responsible_parties(filename, added_package_ids=None, removed_package_ids=None, trace=False):
     if added_package_ids == [] and removed_package_ids == []:
         return
     responsible_parties = db.parse_responsible_parties_file(filename)
@@ -365,6 +384,8 @@ def collect_responsible_parties(filename, added_package_ids=None, removed_packag
             pid = os.path.splitext(filename)[0]
             if added_package_ids and pid not in added_package_ids:
                 continue
+            if trace:
+                log_info(f'  Adding {pid}')
             pid, eml_node = parse_eml_file(filename)
             if eml_node:
                 responsible_parties = get_all_responsible_parties(pid, eml_node)
