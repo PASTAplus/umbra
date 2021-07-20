@@ -380,14 +380,16 @@ def collect_responsible_parties(filename, added_package_ids=None, removed_packag
     # now, append the new responsible parties
     with open(output_filename, 'a') as output_file:
         filelist = get_existing_eml_files()
+        if trace:
+            log_info(f'len(filelist)={len(filelist)}')
         for index, filename in enumerate(filelist):
             pid = os.path.splitext(filename)[0]
             if added_package_ids and pid not in added_package_ids:
                 continue
-            if trace:
-                log_info(f'  Adding {pid}')
             pid, eml_node = parse_eml_file(filename)
             if eml_node:
+                if trace:
+                    log_info(f'  Adding {index} - {pid}')
                 responsible_parties = get_all_responsible_parties(pid, eml_node)
                 for responsible_party in responsible_parties:
                     output_file.write(str(responsible_party))
