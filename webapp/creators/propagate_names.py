@@ -573,6 +573,19 @@ def set_organization_keywords_in_db():
             cur.execute(query)
 
 
+def init_responsible_parties_raw_db():
+    filename = Config.RESPONSIBLE_PARTIES_TEXT_FILE
+    parse_eml.collect_responsible_parties(filename)
+
+    conn = db.get_conn()
+    with conn.cursor() as cur:
+        query = f'delete from {Config.RESPONSIBLE_PARTIES_RAW_TABLE_NAME}'
+        cur.execute(query)
+
+    db.build_responsible_party_raw_db(filename)
+    db.remove_duplicate_records(table_name=Config.RESPONSIBLE_PARTIES_RAW_TABLE_NAME)
+
+
 def gather_and_prepare_data(added_package_ids=None, removed_package_ids=None):
     filename = Config.RESPONSIBLE_PARTIES_TEXT_FILE
     parse_eml.collect_responsible_parties(filename, added_package_ids, removed_package_ids)
@@ -636,8 +649,7 @@ def create_person_variants_lookup(person_variants):
 
 
 if __name__ == '__main__':
+    init_responsible_parties_raw_db()
     pass
-    # gather_and_prepare_data()
-    # process_names()
 
 

@@ -346,7 +346,7 @@ def parse_eml_file(filename):
     return pid, eml_node
 
 
-def collect_responsible_parties(filename, added_package_ids, removed_package_ids):
+def collect_responsible_parties(filename, added_package_ids=None, removed_package_ids=None):
     if added_package_ids == [] and removed_package_ids == []:
         return
     responsible_parties = db.parse_responsible_parties_file(filename)

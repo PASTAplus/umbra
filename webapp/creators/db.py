@@ -113,7 +113,7 @@ def remove_duplicate_records(table_name=Config.RESPONSIBLE_PARTIES_TABLE_NAME):
         conn.commit()
 
 
-def build_responsible_party_raw_db(filename, added_package_ids):
+def build_responsible_party_raw_db(filename, added_package_ids=None):
     if added_package_ids == []:
         return
 
