@@ -293,4 +293,5 @@ def possible_dups():
 @creators_bp.route('/init_raw_db', methods=['POST'])
 def init_raw_db():
     propagate_names.init_responsible_parties_raw_db()
+    return f'Table {Config.RESPONSIBLE_PARTIES_RAW_TABLE_NAME} has been initialized', 200
 
