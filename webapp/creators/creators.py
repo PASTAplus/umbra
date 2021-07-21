@@ -71,6 +71,7 @@ def init_names():
     creator_names = {}
     with open(f'{Config.DATA_FILES_PATH}/creator_names.txt', 'r') as names_file:
         lines = names_file.readlines()
+        log_info(f'init_names: len(lines)={len(lines)}')
     for line in lines:
         line = line.strip()
         substrs = line.split('  --> ')
