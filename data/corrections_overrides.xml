@@ -148,6 +148,17 @@
     </override>
     <override>
         <original>
+            <surname>Nelson</surname>
+            <givenname>Doris J</givenname>
+        </original>
+        <corrected>
+            <surname>Nelson</surname>
+            <givenname>Doris K</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
             <surname>Nickerson</surname>
             <givenname>David middleInitial</givenname>
         </original>
