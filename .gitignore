@@ -114,6 +114,7 @@ config.py
 eml_files
 data/possible_dups_results
 data/.DS_Store
+data/creator_names.txt
 data/last_update.txt
 webapp/.DS_Store
 umbra.log

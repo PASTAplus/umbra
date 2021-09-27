@@ -116,6 +116,19 @@
     </person>
     <person>
         <variant>
+            <surname>Bret-Harte</surname>
+            <givenname>M Syndonia</givenname>
+            <scope>knb-lter-arc</scope>
+        </variant>
+        <variant>
+            <surname>Bret-Harte</surname>
+            <givenname>Syndonia</givenname>
+            <scope>knb-lter-bnz</scope>
+        </variant>
+        <comment>Arctic Biology, UAlaska</comment>
+    </person>
+    <person>
+        <variant>
             <surname>Brzostek</surname>
             <givenname>Edward</givenname>
             <scope>knb-lter-hfr</scope>
@@ -188,6 +201,24 @@
     </person>
     <person>
         <variant>
+            <surname>Coleman</surname>
+            <givenname>Daniel J</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Coleman</surname>
+            <givenname>Daniel</givenname>
+            <scope>knb-lter-pie</scope>
+        </variant>
+        <variant>
+            <surname>Coleman</surname>
+            <givenname>Daniel</givenname>
+            <scope>knb-lter-vcr</scope>
+        </variant>
+        <comment>Virginia</comment>
+    </person>
+    <person>
+        <variant>
             <surname>Fergus</surname>
             <givenname>C Emi</givenname>
             <scope>edi</scope>
@@ -239,6 +270,24 @@
             <scope>knb-lter-ntl</scope>
         </variant>
         <comment>Unusual name, EDI, NTL</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Grove</surname>
+            <givenname>Morgan</givenname>
+            <scope>knb-lter-bes</scope>
+        </variant>
+        <variant>
+            <surname>Grove</surname>
+            <givenname>J Morgan</givenname>
+            <scope>knb-lter-bes</scope>
+        </variant>
+        <variant>
+            <surname>Grove</surname>
+            <givenname>Morgan J</givenname>
+            <scope>knb-lter-bes</scope>
+        </variant>
+        <comment>USDA Forest Service</comment>
     </person>
     <person>
         <variant>
@@ -704,6 +753,19 @@
             <givenname>J Clint</givenname>
             <scope>knb-lter-sbc</scope>
         </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Nelson</surname>
+            <givenname>Doris J</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Nelson</surname>
+            <givenname>Doris K</givenname>
+            <scope>edi</scope>
+        </variant>
+        <comment>USDA Forest Service</comment>
     </person>
     <person>
         <variant>
