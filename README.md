@@ -1,6 +1,6 @@
 # umbra
 APIs for "shadow" metadata
-## Creator Names API
+## Creator Names APIs
 
 ### APIs used by the Data Portal:
 
