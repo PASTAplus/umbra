@@ -30,13 +30,12 @@ APIs for "shadow" metadata
     This is run as a cronjob on each umbra server. It gets the newly-added EML files from PASTA and processes them to find new creator names, if any. 
 
  * __Get possible duplicates__ <br>
-    GET http://umbra-d.edirepository.org/creators/possible_dups
+    GET http://umbra-d.edirepository.org/creators/possible_dups <br>
+    There's information on how to use this API below in the section on maintaining the creator names database.
 
  * __Flush possible duplicates__ <br>
-    POST http://umbra-d.edirepository.org/creators/possible_dups
-    
-
-### Manual steps involved in maintaining the creator names database:
+    POST http://umbra-d.edirepository.org/creators/possible_dups <br>
+    There's information on how to use this API below in the section on maintaining the creator names database.
 
 
 ### Manual steps involved in creating the creator names database:
@@ -60,3 +59,166 @@ The following steps apply to a newly-instantiated umbra server. I.e., they are t
     <br>
     
 * The two steps above, getting the initial set of EML files and initializing the "raw" responsible parties database table, only need to be done once. Subsequently, new EML files will be downloaded and the database updated via the update creator names API described above.
+    
+
+### Manual steps involved in maintaining the creator names database:
+The umbra software does its best to resolve and normalize creator names programmatically. To determine if several name variants (e.g., James T Kirk, James Kirk, Jim Kirk, J Kirk) actually refer to the same person, it looks at various forms of "evidence" (email address, organization name, etc.) in the EML files. In some cases, however, it is unable confidently to conclude that two variants are the same person, and manual intervention is needed. Either evidence is lacking, or a surname may be misspelled in a particular case, for example.
+
+The API GET http://umbra-d.edirepository.org/creators/possible_dups returns a list of cases that should be looked at manually. They are cases where a given surname has multiple normalized givennames. The list starts with dups that are new, followed by a line that reads  "==================================================". For example, a call to this API returned (partial list):
+```
+[
+    "Adams: Byron, Henry D, Jesse B, Leslie M, Mary Beth, Phyllis C",
+    "Anderson: Christopher B, Clarissa, Cody A, Craig, Iris, James, Jim, John P, Kathryn, Lucy, Lyle, Mike D, Rebecca, Robert A, Suzanne Prestrud, Thomas, William",
+    "Bailey: Amey, John, Rosemary, Scott W, Vanessa L",
+    "Brown: Cindi, Cynthia S, Dana Rachel, James, Jeffrey, Joseph K, Kerry, Renee F",
+    "Martin: Chris A, Jonathan E, Mac, Mary",
+    "McDowell: Nate G, Nathan, William H",
+    "Simmons: Breana, Joseph",
+    "Smith: Alexander, C Scott, Colin A, Curt, David R, Dylan J, G Jason, Jane E, Jane G, Jason M, Jayme, John W, Jonathan W, Katherine, Kerry, Lesley, Lori, Matthew, Melinda D, Michael, Ned, Nicole J, Rachel, Raymond, Richard, Sarah J, Stacy A, Thomas C",
+    "Zhou: Jiayu, Jizhong, Weiqi",
+    "Zimmerman: Jess, Jess K, Richard C"
+    "==================================================",
+    "Adams: Byron, Henry D, Jesse B, Leslie M, Mary Beth, Phyllis C",
+    "Adhikari: Ashish, Bishwo",
+    "Alexander: Clark R, Heather D, Mara, Pezzuoli R",
+    "Allen: Dennis, Jonathan, Scott Thomas",
+    "Anderson: Christopher B, Clarissa, Cody A, Craig, Iris, James, Jim, John P, Kathryn, Lucy, Lyle, Mike D, Rebecca, Robert A, Suzanne Prestrud, Thomas, William",    
+    etc.
+]
+```
+
+Scanning down this list, we see several cases that look suspicious: <br>
+    Anderson: James, Jim <br>
+    Brown: Cynthia S, Cindi <br>
+    McDowell: Nate G, Nathan <br>
+    Smith: Jane E, Jane G <br>
+    Zimmerman: Jess, Jess K <br>
+
+We check these out by running psql queries on the server.
+
+```
+select surname, givenname, scope, address, organization, email, url, orcid, organization_keywords from eml_files.responsible_parties_test where rp_type='creator' and surname='Anderson' and givenname in ('James','Jim') order by scope; <br>
+```
+shows that there is no evidence connecting Jim and James Anderson, so we do nothing.
+
+```
+select surname, givenname, scope, address, organization, email, url, orcid, organization_keywords from eml_files.responsible_parties_test where rp_type='creator' and surname='Brown' and givenname like 'C%' order by scope; <br>
+```
+shows that Cindi and Cynthia S Brown are almost certainly different people, so again we do nothing.
+
+The one case that needs fixing is Zimmerman: Jess, Jess K. <br>
+The query <br>
+```
+select surname, givenname, scope, organization, email, organization_keywords from eml_files.responsible_parties where rp_type='creator' and surname='Zimmerman' and givenname like 'Jes%' order by scope;<br>
+```
+returns (partial results):<br>
+```
+  surname  | givenname |    scope     |                 organization                  |         email          | organization_keywords 
+-----------+-----------+--------------+-----------------------------------------------+------------------------+-----------------------
+ Zimmerman | Jess      | edi          | LUQ LTER                                      |                        | 
+ Zimmerman | Jess      | knb-lter-luq | University of Puerto Rico, Rio Piedras Campus | jesskz@ites.upr.edu    |  UPuertoRico
+ Zimmerman | Jess      | knb-lter-luq | University of Puerto Rico, Rio Piedras Campus | jesskz@ites.upr.edu    |  UPuertoRico
+ Zimmerman | Jess      | knb-lter-luq |                                               | jzimmerman@lternet.edu |  UPuertoRico
+ Zimmerman | Jess      | knb-lter-luq |                                               | jzimmerman@lternet.edu |  UPuertoRico
+ Zimmerman | Jess      | knb-lter-luq | University of Puerto Rico, Rio Piedras Campus | jesskz@ites.upr.edu    |  UPuertoRico
+ Zimmerman | Jess K    | knb-lter-luq | University of Puerto Rico - Rio Piedras       | jesskz@ites.upr.edu    |  UPuertoRico
+ Zimmerman | Jess      | knb-lter-luq | University of Puerto Rico                     | jzimmerman@lternet.edu |  UPuertoRico
+ Zimmerman | Jess K    | knb-lter-luq | University of Puerto Rico - Rio Piedras       | jesskz@ites.upr.edu    |  UPuertoRico
+ Zimmerman | Jess      | knb-lter-luq | University of Puerto Rico, Rio Piedras Campus | jesskz@ites.upr.edu    |  UPuertoRico
+```    
+
+umbra will figure out that the Jess and Jess K Zimmerman in the knb-lter-luq scope are the same person, since they're both at the University of Puerto Rico.
+
+The problem is the Jess Zimmerman in the edi scope. But note that here we do have LUQ LTER as the organization, so that seems to make it a safe bet that it's the same Jess Zimmerman as in knb-lter-luq. To tell umbra that they are the same person, we edit the data file __corrections_name_variants.xml__ and add these entries:
+```
+    <person>
+        <variant>
+            <surname>Zimmerman</surname>
+            <givenname>Jess</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Zimmerman</surname>
+            <givenname>Jess</givenname>
+            <scope>knb-lter-luq</scope>
+        </variant>
+        <variant>
+            <surname>Zimmerman</surname>
+            <givenname>Jess K</givenname>
+            <scope>knb-lter-luq</scope>
+        </variant>
+    </person>
+```
+These changes should be made in Github and pulled down to the server.
+
+Once we have resolved all of the suspicious cases, we need to tell umbra to flush the "new" possible dups so the next time we ask for possible dups we aren't given the same new cases to check out all over again. To flush, __POST http://umbra-d.edirepository.org/creators/possible_dups__.
+
+Now, if we do a __GET http://umbra-d.edirepository.org/creators/possible_dups__, the returned list will look like:
+```
+[
+    "==================================================",
+    "Adams: Byron, Henry D, Jesse B, Leslie M, Mary Beth, Phyllis C",
+    "Adhikari: Ashish, Bishwo",
+    "Alexander: Clark R, Heather D, Mara, Pezzuoli R",
+    "Allen: Dennis, Jonathan, Scott Thomas",
+    "Anderson: Christopher B, Clarissa, Cody A, Craig, Iris, James, Jim, John P, Kathryn, Lucy, Lyle, Mike D, Rebecca, Robert A, Suzanne Prestrud, Thomas, William",    
+    etc.
+]
+```
+i.e., the list of new possible dups above the "==================================================" line is now empty.
+
+As we update the creator names over the course of some days, new possible dups will show up, and we do the same process over again.
+
+There are several other data files to be aware of.
+
+__corrections_nicknames.xml__ lists nicknames that we want to recognize. E.g.,
+```
+    <nickname>
+        <name1>jim</name1>
+        <name2>james</name2>
+    </nickname>
+```
+
+__corections_orcids.xml__ lists ORCIDs for creators that have incorrect ORCIDs in one or more EML files. E.g., 
+```
+    <correction>
+        <surname>Stanley</surname>
+        <givenname>Emily%</givenname>
+        <orcid>0000-0003-4922-8121</orcid>
+    </correction>
+```
+
+__corrections_overrides.xml__ lists cases where a name is misspelled and we want to correct the spelling, not just treat it as a variant. E.g., 
+```
+    <override>
+        <original>
+            <surname>Morse</surname>
+            <givenname>Jennfier F</givenname>
+        </original>
+        <corrected>
+            <surname>Morse</surname>
+            <givenname>Jennifer F</givenname>
+        </corrected>
+        <scope>knb-lter-nwt</scope>
+    </override>
+```
+Note that the name_variants API will still return the misspelled name as one of the variants so that searches will find datasets with the name misspelled.
+
+__organizations.xml__ lists organization names and emails that correspond to a particular organization (usually a university). E.g., 
+```
+   <organization>
+        <name>U%New Mexico</name>
+        <name>U%NM</name>
+        <name>UNM</name>
+        <email>unm.edu</email>
+        <keyword>UNM</keyword>
+    </organization>
+```
+Any organization name, address, or email address that matches or contains one of the variants will mark a record in the database as being in the given organization (UNM, in this example). This helps umbra determine what organization a record is associated with, despite the many variations in the ways organization names, addresses, and email addresses are spelled.
+
+
+
+
+
+
+    
