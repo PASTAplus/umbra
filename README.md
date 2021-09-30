@@ -167,7 +167,7 @@ Now, if we do a __GET http://umbra-d.edirepository.org/creators/possible_dups__,
 ```
 i.e., the list of new possible dups above the "==================================================" line is now empty.
 
-As we update the creator names over the course of some days, new possible dups will show up, and we do the same process over again.
+As we update the creator names over the course of some days, new possible dups will probably show up, and we do the same process over again.
 
 There are several other data files to be aware of.
 
