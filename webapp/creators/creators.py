@@ -231,18 +231,30 @@ def variants(name):
         return (f'Name "{name}" not found'), 400
 
 
-def get_old_dups(flush=False):
+def flush_old_dups():
     filelist = sorted(glob.glob(f'{Config.POSSIBLE_DUPS_FILES_PATH}/possible_dups_*.txt'))
-    dups = {}
     if filelist:
+        # When the user is flushing, we assume they've resolved based on the last time they
+        #  asked for possible_dups, so we delete all but the newest saved list.
+        for filename in filelist[:-1]:
+            os.remove(filename)
+
+
+def get_old_dups():
+    dups = {}
+
+    filelist = sorted(glob.glob(f'{Config.POSSIBLE_DUPS_FILES_PATH}/possible_dups_*.txt'))
+    if filelist:
+        # We want to return the oldest saved list. The user may have looked at possible_dups
+        #  multiple times, but until they flush, we can't assume they've resolved dups.
         old_dups_filename = filelist[0]
         with open(old_dups_filename, 'r') as dups_file:
             dups = eval(dups_file.read())
-        if flush:
-            for filename in filelist:
-                os.remove(filename)
+
     dups_dict = {}
     for dup in dups:
+        if dup.startswith('=========='):
+            continue
         surname, givennames = dup.split(': ')
         dups_dict[surname.replace('** ', '')] = givennames
     return dups_dict
@@ -250,11 +262,15 @@ def get_old_dups(flush=False):
 
 @creators_bp.route('/possible_dups', methods=['GET', 'POST'])
 def possible_dups():
-    flush = request.method == 'POST'
+    if request.method == 'POST':
+        flush_old_dups()
+        return 'Flush completed', 200
+
     output = []
+    marked_output = []
     names = sorted(list(creator_names.keys()), key=str.casefold)
     prev_surname = None
-    old_dups = get_old_dups(flush)
+    old_dups = get_old_dups()
     givennames = []
     for name in names:
         surname, givenname = name.split(', ')
@@ -264,31 +280,32 @@ def possible_dups():
             if len(givennames) > 1:
                 out_givennames = ', '.join(givennames)
                 mark_change = ''
-                if old_dups and not flush:
+                if old_dups:
+                    foo = old_dups.get(prev_surname)
                     if not old_dups.get(prev_surname):
                         mark_change = '** '
                     elif old_dups.get(prev_surname) != out_givennames:
                         mark_change = '** '
-                output.append(f"{mark_change}{prev_surname}: {out_givennames}")
+                output.append(f"{prev_surname}: {out_givennames}")
+                marked_output.append(f"{mark_change}{prev_surname}: {out_givennames}")
             prev_surname = surname
             givennames = [givenname]
         else:
             givennames.append(givenname)
-    # Go thru and get all the lines with change markers and prepend them to the output
-    changes = []
-    for outline in output:
-        if '** ' in outline:
-            changes.append(outline.replace('** ', ''))
-    if changes:
-        output = changes + ['=================================================='] + output
-    output = jsonify(output)
 
     # Save output in a file for comparison later
     timestamp = datetime.now().date().strftime('%Y_%m_%d') + '__' + datetime.now().time().strftime('%H_%M_%S')
     filename = f"possible_dups_{timestamp}.txt"
     with open(f"{Config.POSSIBLE_DUPS_FILES_PATH}/{filename}", 'w') as dups_file:
-        dups_file.write(str(output.json))
-    return output
+        dups_file.write(str(jsonify(output).json))
+
+    # Go thru and get all the lines with change markers and prepend them to the output
+    changes = []
+    for outline in marked_output:
+        if '** ' in outline:
+            changes.append(outline.replace('** ', ''))
+    marked_output = changes + ['=================================================='] + marked_output
+    return jsonify(marked_output)
 
 
 @creators_bp.route('/init_raw_db', methods=['POST'])
