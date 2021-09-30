@@ -262,6 +262,7 @@ def get_old_dups():
 
 @creators_bp.route('/possible_dups', methods=['GET', 'POST'])
 def possible_dups():
+    log_info(f'possible_dups...  method={request.method}')
     if request.method == 'POST':
         flush_old_dups()
         return 'Flush completed', 200
