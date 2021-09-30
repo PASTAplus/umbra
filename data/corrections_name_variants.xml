@@ -1173,4 +1173,21 @@
             <scope>knb-lter-cdr</scope>
         </variant>
     </person>
+    <person>
+        <variant>
+            <surname>Zimmerman</surname>
+            <givenname>Jess</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Zimmerman</surname>
+            <givenname>Jess</givenname>
+            <scope>knb-lter-luq</scope>
+        </variant>
+        <variant>
+            <surname>Zimmerman</surname>
+            <givenname>Jess K</givenname>
+            <scope>knb-lter-luq</scope>
+        </variant>
+    </person>
 </persons>
