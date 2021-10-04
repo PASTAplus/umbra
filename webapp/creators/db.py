@@ -311,16 +311,17 @@ def normalize_data_field(field_name, table_name):
 
 
 def normalize_db_text(table_name=Config.RESPONSIBLE_PARTIES_TABLE_NAME):
-    for field in ['surname', 'givenname']:
-        normalize_name_field(field, table_name)
+    # for field in ['surname', 'givenname']:
+    #     normalize_name_field(field, table_name)
     for field in ['position', 'address', 'organization']:
         normalize_data_field(field, table_name)
 
 
+'''
 def clean_names(givenname, surname):
     normalized_givenname = nlp.ormalize(givenname).replace("'", "''")
     normalized_surname = nlp.normalize(surname).replace("'", "''")
-    # special cases
+    # special cases - Note: none of these are creators
     normalized_givenname = normalized_givenname.replace('M&eacute;lanie', 'Melanie')
     normalized_surname = normalized_surname.replace(' (In Memorium)', '')
     normalized_surname = normalized_surname.replace(' (deceased)', '')
@@ -352,6 +353,7 @@ def create_cleaned_names_table(rp_type=None):
                     f"(cleaned_givenname, cleaned_surname, original_givenname, original_surname) " \
                     f"values ('{normalized_givenname}', '{normalized_surname}', '{givenname}', '{surname}')"
             cur.execute(query)
+'''
 
 
 if __name__ == '__main__':

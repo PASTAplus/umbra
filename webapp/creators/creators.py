@@ -36,10 +36,12 @@ import glob
 import os
 import requests
 
+import ast
 import daiquiri
 from flask import (
     Flask, Blueprint, jsonify, request, current_app
 )
+from unidecode import unidecode
 import xml.etree.ElementTree as ET
 
 from webapp.config import Config
@@ -69,26 +71,9 @@ def init_names():
     global creator_names
 
     creator_names = {}
+
     with open(f'{Config.DATA_FILES_PATH}/creator_names.txt', 'r') as names_file:
-        lines = names_file.readlines()
-        log_info(f'init_names: len(lines)={len(lines)}')
-    for line in lines:
-        line = line.strip()
-        substrs = line.split('  --> ')
-        canonical_name = substrs[0]
-        if len(substrs) > 1:
-            givenname_variants = substrs[1].split(' | ')
-        else:
-            givenname_variants = None
-        if not givenname_variants:
-            creator_names[canonical_name] = [canonical_name]
-        else:
-            substrs = canonical_name.split(', ')
-            surname = substrs[0].replace("'", "''")
-            name_variants = []
-            for givenname in givenname_variants:
-                name_variants.append(f"{surname}, {givenname}")
-            creator_names[canonical_name] = name_variants
+        creator_names = ast.literal_eval(names_file.read())
 
     # Names that have been overridden (e.g., typos) need to be included in the list of variants
     #  associated with a canonical name so that their data packages will be found in a search
@@ -215,11 +200,17 @@ def update_creator_names():
     log_info(f"leaving update_creator_names")
 
 
+def names_key(name):
+    # So we sort accented names as if they were unaccented.
+    # # Otherwise, they get sorted after all of the unaccented names.
+    return unidecode(name.casefold())
+
+
 @creators_bp.route('/names', methods=['GET', 'POST'])
 def names():
     if request.method == 'POST':
         update_creator_names()
-    return jsonify(sorted(list(creator_names.keys()), key=str.casefold)), 200
+    return jsonify(sorted(list(creator_names.keys()), key=names_key)), 200
 
 
 @creators_bp.route('/name_variants/<name>', methods=['GET'])
@@ -269,7 +260,7 @@ def possible_dups():
 
     output = []
     marked_output = []
-    names = sorted(list(creator_names.keys()), key=str.casefold)
+    names = sorted(list(creator_names.keys()), key=names_key)
     prev_surname = None
     old_dups = get_old_dups()
     givennames = []

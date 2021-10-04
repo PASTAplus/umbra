@@ -18,7 +18,7 @@ import daiquiri
 from flask import (
     Flask, Blueprint, jsonify, request, current_app
 )
-
+from unidecode import unidecode
 from lxml import etree
 
 from multidict import CIMultiDict
@@ -27,6 +27,7 @@ from recordclass import recordclass
 from webapp.config import Config
 
 import webapp.creators.corrections as corrections
+import webapp.creators.creators as creators
 import webapp.creators.db as db
 import webapp.creators.nlp as nlp
 import webapp.creators.parse_eml as parse_eml
@@ -94,8 +95,8 @@ nicknames = None
 def same_names(name1, name2):
     if not name1 or not name2:
         return False
-    name1 = name1.lower().replace('.', '')
-    name2 = name2.lower().replace('.', '')
+    name1 = unidecode(name1.lower().replace('.', ''))
+    name2 = unidecode(name2.lower().replace('.', ''))
     return name1 == name2
 
 
@@ -112,6 +113,7 @@ def nickname(name1, name2):
 def similar_names(name1, name2, use_nicknames=True):
     if not name1 or not name2:
         return False
+
     name1 = nlp.normalize(name1.lower().replace('.',''))
     name2 = nlp.normalize(name2.lower().replace('.',''))
     if use_nicknames:
@@ -531,39 +533,91 @@ def get_lter_sites():
     return lter_sites
 
 
+def is_accented(name):
+    return name != unidecode(name)
+
+
+def normalize_for_comparison(name):
+    return nlp.normalize(name.lower())
+
+
+def capitalize(s):
+    # We use this rather than str.capitalize() because we only want to affect the first letter
+    return s[0].upper() + s[1:]
+
+
+def merge_accented_surnames(creator_names, named_persons_by_surname):
+    keys = sorted(creator_names.keys(), key=creators.names_key)
+    prev_key = ''
+    for key in keys:
+        if normalize_for_comparison(key) == normalize_for_comparison(prev_key):
+            # See if we have evidence they're the same person
+            surname = key.split(',')[0]
+            givenname = key.split(', ')[1]
+            persons = named_persons_by_surname.getall(surname, [])
+            prev_surname = prev_key.split(',')[0]
+            prev_givenname = prev_key.split(', ')[1]
+            prev_persons = named_persons_by_surname.getall(prev_surname, [])
+            matched = False
+            for person in persons:
+                for prev_person in prev_persons:
+                    if matched_named_persons(person, prev_person) and \
+                            givenname in person.givenname and \
+                            prev_givenname in prev_person.givenname:
+                        matched = True
+                        break
+                if matched:
+                    break
+            if not matched:
+                continue
+            if is_accented(key):
+                preferred_key = key
+                other_key = prev_key
+            else:
+                preferred_key = prev_key
+                other_key = key
+            creator_names[preferred_key] |= creator_names[other_key]
+            del creator_names[other_key]
+        prev_key = key
+
+
 def save_creator_names():
     global named_persons_by_surname
 
-    surnames = sorted(list(set(named_persons_by_surname.keys())), key=str.casefold)
+    surnames = sorted(list(set(named_persons_by_surname.keys())), key=creators.names_key)
+
+    creator_names = {}
+    for surname in surnames:
+        named_persons = named_persons_by_surname.getall(surname, [])
+        for named_person in named_persons:
+            if 'creator' not in named_person.rp_type:
+                continue
+            serial_id, pid, rp_type, givenname, surname, organization, position, address, city, country, \
+                email, url, orcid, scope, _, organization_keywords = named_person
+            if not len(surname):
+                continue
+
+            givennames = sorted(givenname, key=creators.names_key)
+            display_name = ''
+            for name in givennames:
+                if len(name) > len(display_name) or (len(name) == len(display_name) and is_accented(name)):
+                    display_name = name
+
+            surnames = list(surname)
+            key = f'{capitalize(surnames[0])}, {display_name}'
+            names = set()
+            for sname in surnames:
+                for givenname in givennames:
+                    names.add(f'{sname}, {givenname}')
+            creator_names[key] = names
+
+    merge_accented_surnames(creator_names, named_persons_by_surname)
+
+    for key in creator_names:
+        creator_names[key] = list(creator_names[key])
 
     with open(f'{Config.DATA_FILES_PATH}/creator_names.txt', 'w') as names_file:
-        for surname in surnames:
-            named_persons = named_persons_by_surname.getall(surname, [])
-            prev_givenname_output = ''
-            for named_person in named_persons:
-                if 'creator' not in named_person.rp_type:
-                    continue
-                serial_id, pid, rp_type, givenname, surname, organization, position, address, city, country, \
-                    email, url, orcid, scope, _, organization_keywords = named_person
-                if not len(surname):
-                    continue
-                if len(givenname) == 1:
-                    givenname_output = givenname.pop()
-                else:
-                    givennames = sorted(givenname)
-                    display_name = ''
-                    for name in givennames:
-                        if len(name) > len(display_name):
-                            display_name = name
-                    givenname_output = f"{display_name}  --> {' | '.join(sorted(givenname))}"
-                if givenname_output != prev_givenname_output:
-                    prev_givenname_output = givenname_output
-                    try:
-                        output = f"{surname.pop()}, {givenname_output}"
-                    except:
-                        continue
-                    # print(output)
-                    names_file.write(f"{output}\n")
+        names_file.write(str(creator_names))
 
 
 def set_organization_keywords_in_db():

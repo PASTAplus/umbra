@@ -14,13 +14,15 @@
 """
 
 import textacy.preprocessing as tprep
+from unidecode import unidecode
 
 
 def normalize(text):
     text = tprep.normalize.hyphenated_words(text)
     text = tprep.normalize.quotation_marks(text)
     text = tprep.normalize.unicode(text)
-    text = tprep.remove.accents(text)
+    # text = tprep.remove.accents(text)
+    text = unidecode(text)
     return text
 
 
