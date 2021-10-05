@@ -859,6 +859,19 @@
     </person>
     <person>
         <variant>
+            <surname>Puerzer</surname>
+            <givenname>Francesca</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Puerzer</surname>
+            <givenname>Frankie</givenname>
+            <scope>knb-lter-sbc</scope>
+        </variant>
+        <comment>UCSB, orcid.org</comment>
+    </person>
+    <person>
+        <variant>
             <surname>Raymond</surname>
             <givenname>Peter</givenname>
             <scope>edi</scope>
