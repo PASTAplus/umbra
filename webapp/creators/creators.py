@@ -46,6 +46,7 @@ import xml.etree.ElementTree as ET
 
 from webapp.config import Config
 import webapp.creators.corrections as corrections
+import webapp.creators.db as db
 import webapp.creators.propagate_names as propagate_names
 
 creators_bp = Blueprint('creators_bp', __name__)
@@ -251,6 +252,48 @@ def get_old_dups():
     return dups_dict
 
 
+@creators_bp.route('/orphans', methods=['GET', 'POST'])
+def orphans():
+    log_info(f'orphans...  method={request.method}')
+    if request.method == 'POST':
+        return 'Flush completed', 200
+
+    # Get a list of PIDs for which we have EML files
+    pids = []
+    filelist = sorted(glob.glob(f'{Config.EML_FILES_PATH}/*.xml'))
+    if filelist:
+        for filename in filelist:
+            pids.append(os.path.basename(filename.replace('.xml', '')))
+
+    # Search for creators having one of those PIDs. I.e., creators that should have been removed or replaced but weren't
+    conn = db.get_conn()
+
+    orphans = []
+    creators = {}
+    with conn.cursor() as cur:
+        query = f"select serial_id, surname, givenname, pid from {Config.RESPONSIBLE_PARTIES_TABLE_NAME} " \
+                f"where rp_type='creator'"
+        cur.execute(query)
+        results = cur.fetchall()
+        for result in results:
+            serial_id, surname, givenname, pid = result
+            scope, id, _ = parse_package_id(pid)
+            creators_for_pid = creators.get((scope, id), [])
+            creators_for_pid.append(result)
+            creators[(scope, id)] = creators_for_pid
+
+        for pid in pids:
+            scope, id, revision = parse_package_id(pid)
+            creators_for_pid = creators[(scope, id)]
+            for result in creators_for_pid:
+                serial_id, surname, givenname, result_pid = result
+                _, _, result_revision = parse_package_id(result_pid)
+                if revision != result_revision:
+                    orphans.append(result)
+
+    return jsonify(orphans)
+
+
 @creators_bp.route('/possible_dups', methods=['GET', 'POST'])
 def possible_dups():
     log_info(f'possible_dups...  method={request.method}')
@@ -273,7 +316,6 @@ def possible_dups():
                 out_givennames = ', '.join(givennames)
                 mark_change = ''
                 if old_dups:
-                    foo = old_dups.get(prev_surname)
                     if not old_dups.get(prev_surname):
                         mark_change = '** '
                     elif old_dups.get(prev_surname) != out_givennames:
