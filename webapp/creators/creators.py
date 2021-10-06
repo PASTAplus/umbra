@@ -197,6 +197,8 @@ def update_creator_names():
     added_package_ids, removed_package_ids = get_changes()
     propagate_names.gather_and_prepare_data(added_package_ids, removed_package_ids)
     propagate_names.process_names()
+    _, orphan_pids = find_orphans()
+    flush_orphans(orphan_pids)
     init_names()
     log_info(f"leaving update_creator_names")
 
@@ -252,12 +254,17 @@ def get_old_dups():
     return dups_dict
 
 
-@creators_bp.route('/orphans', methods=['GET', 'POST'])
-def orphans():
-    log_info(f'orphans...  method={request.method}')
-    if request.method == 'POST':
-        return 'Flush completed', 200
+def flush_orphans(orphan_pids):
+    conn = db.get_conn()
 
+    with conn.cursor() as cur:
+        for pid in orphan_pids:
+            query = f"delete from {Config.RESPONSIBLE_PARTIES_TABLE_NAME} " \
+                    f"where pid='{pid}'"
+            cur.execute(query)
+
+
+def find_orphans():
     # Get a list of PIDs for which we have EML files
     pids = []
     filelist = sorted(glob.glob(f'{Config.EML_FILES_PATH}/*.xml'))
@@ -269,6 +276,7 @@ def orphans():
     conn = db.get_conn()
 
     orphans = []
+    orphan_pids = set()
     creators = {}
     with conn.cursor() as cur:
         query = f"select serial_id, surname, givenname, pid from {Config.RESPONSIBLE_PARTIES_TABLE_NAME} " \
@@ -284,14 +292,30 @@ def orphans():
 
         for pid in pids:
             scope, id, revision = parse_package_id(pid)
-            creators_for_pid = creators[(scope, id)]
+            creators_for_pid = creators.get((scope, id), [])
+            if not creators_for_pid:
+                continue
             for result in creators_for_pid:
                 serial_id, surname, givenname, result_pid = result
                 _, _, result_revision = parse_package_id(result_pid)
                 if revision != result_revision:
                     orphans.append(result)
+                    orphan_pids.add(f"{scope}.{id}.{result_revision}")
+    return orphans, orphan_pids
 
-    return jsonify(orphans)
+
+@creators_bp.route('/orphans', methods=['GET', 'POST'])
+def orphans():
+    log_info(f'orphans...  method={request.method}')
+
+    orphans, orphan_pids = find_orphans()
+
+    if request.method == 'GET':
+        return jsonify(orphans)
+
+    if request.method == 'POST':
+        flush_orphans(orphan_pids)
+        return jsonify(sorted(orphan_pids))
 
 
 @creators_bp.route('/possible_dups', methods=['GET', 'POST'])
