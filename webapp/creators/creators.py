@@ -67,7 +67,7 @@ def log_error(msg):
         current_app.logger.error(msg)
 
 
-@creators_bp.before_app_first_request
+@creators_bp.before_request
 def init_names():
     global creator_names
 
@@ -152,7 +152,7 @@ def delete_old_revisions(removed_package_ids):
 
 def get_changes():
     # See what the from date is
-    from_date = '2021-06-20'
+    from_date = '2021-10-01'
     last_update_path = f'{Config.DATA_FILES_PATH}/last_update.txt'
     if os.path.exists(last_update_path):
         with open(last_update_path, 'r') as last_update_file:
