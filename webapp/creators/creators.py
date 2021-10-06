@@ -262,6 +262,9 @@ def flush_orphans(orphan_pids):
             query = f"delete from {Config.RESPONSIBLE_PARTIES_TABLE_NAME} " \
                     f"where pid='{pid}'"
             cur.execute(query)
+            query = f"delete from {Config.RESPONSIBLE_PARTIES_RAW_TABLE_NAME} " \
+                    f"where pid='{pid}'"
+            cur.execute(query)
 
 
 def find_orphans():
