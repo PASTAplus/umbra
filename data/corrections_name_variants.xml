@@ -159,6 +159,19 @@
     </person>
     <person>
         <variant>
+            <surname>Campbell</surname>
+            <givenname>John L</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Campbell</surname>
+            <givenname>John</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <comment>USDA Forest Service</comment>
+    </person>
+    <person>
+        <variant>
             <surname>Cavender-Bares</surname>
             <givenname>Jeanine</givenname>
             <scope>knb-lter-bes</scope>
