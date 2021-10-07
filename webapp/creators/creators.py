@@ -357,6 +357,7 @@ def possible_dups():
     # Save output in a file for comparison later
     timestamp = datetime.now().date().strftime('%Y_%m_%d') + '__' + datetime.now().time().strftime('%H_%M_%S')
     filename = f"possible_dups_{timestamp}.txt"
+    os.makedirs(f"{Config.POSSIBLE_DUPS_FILES_PATH}/", exist_ok=True)
     with open(f"{Config.POSSIBLE_DUPS_FILES_PATH}/{filename}", 'w') as dups_file:
         dups_file.write(str(jsonify(output).json))
 
