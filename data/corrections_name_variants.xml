@@ -142,6 +142,28 @@
     </person>
     <person>
         <variant>
+            <surname>Burkepile</surname>
+            <givenname>Deron</givenname>
+            <scope>knb-lter-mcr</scope>
+        </variant>
+        <variant>
+            <surname>Burkepile</surname>
+            <givenname>Deron E</givenname>
+            <scope>knb-lter-mcr</scope>
+        </variant>
+        <variant>
+            <surname>Burkepile</surname>
+            <givenname>Deron</givenname>
+            <scope>knb-lter-sbc</scope>
+        </variant>
+        <variant>
+            <surname>Burkepile</surname>
+            <givenname>Deron</givenname>
+            <scope>knb-lter-sev</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
             <surname>Caine</surname>
             <givenname>T Nelson (Nel)</givenname>
             <scope>knb-lter-nwt</scope>
@@ -232,6 +254,30 @@
     </person>
     <person>
         <variant>
+            <surname>Dietze</surname>
+            <givenname>Michael C</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Dietze</surname>
+            <givenname>Michael</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Drake</surname>
+            <givenname>John E</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Drake</surname>
+            <givenname>John</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
             <surname>Fergus</surname>
             <givenname>C Emi</givenname>
             <scope>edi</scope>
@@ -255,6 +301,18 @@
     </person>
     <person>
         <variant>
+            <surname>Fisk</surname>
+            <givenname>Melany</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Fisk</surname>
+            <givenname>Melany C</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
             <surname>Frey</surname>
             <givenname>Serita</givenname>
             <scope>edi</scope>
@@ -270,6 +328,28 @@
             <scope>knb-lter-hfr</scope>
         </variant>
         <comment>New Hampshire, HFR</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Fulweiler</surname>
+            <givenname>Robinson W</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Fulweiler</surname>
+            <givenname>Robinson</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+        <variant>
+            <surname>Fulweiler</surname>
+            <givenname>Robinson W</givenname>
+            <scope>knb-lter-pie</scope>
+        </variant>
+        <variant>
+            <surname>Fulweiler</surname>
+            <givenname>Robinson</givenname>
+            <scope>knb-lter-pie</scope>
+        </variant>
     </person>
     <person>
         <variant>
@@ -438,6 +518,11 @@
             <surname>Hicks Pries</surname>
             <givenname>Caitlin E</givenname>
             <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Hicks Pries</surname>
+            <givenname>Caitlin</givenname>
+            <scope>knb-lter-hfr</scope>
         </variant>
         <comment>ORCID lookup</comment>
     </person>
@@ -633,6 +718,23 @@
     </person>
     <person>
         <variant>
+            <surname>Leon</surname>
+            <givenname>Miguel</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Leon</surname>
+            <givenname>Miguel</givenname>
+            <scope>knb-lter-luq</scope>
+        </variant>
+        <variant>
+            <surname>Leon</surname>
+            <givenname>Miguel C</givenname>
+            <scope>knb-lter-luq</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
             <surname>Lewis</surname>
             <givenname>David</givenname>
             <scope>edi</scope>
@@ -782,16 +884,32 @@
     </person>
     <person>
         <variant>
-            <surname>O'Reilly</surname>
-            <givenname>Catherine M</givenname>
+            <surname>Ohman</surname>
+            <givenname>Mark</givenname>
             <scope>edi</scope>
         </variant>
         <variant>
-            <surname>O'Reilly</surname>
-            <givenname>Catherine</givenname>
-            <scope>knb-lter-ntl</scope>
+            <surname>Ohman</surname>
+            <givenname>Mark</givenname>
+            <scope>knb-lter-cce</scope>
         </variant>
-        <comment>EDI and NTL</comment>
+        <variant>
+            <surname>Ohman</surname>
+            <givenname>Mark D</givenname>
+            <scope>knb-lter-cce</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>O'Keefe</surname>
+            <givenname>Kimberly</givenname>
+            <scope>knb-lter-arc</scope>
+        </variant>
+        <variant>
+            <surname>O'Keefe</surname>
+            <givenname>Kim</givenname>
+            <scope>knb-lter-arc</scope>
+        </variant>
     </person>
     <person>
         <variant>
@@ -818,6 +936,19 @@
     </person>
     <person>
         <variant>
+            <surname>O'Reilly</surname>
+            <givenname>Catherine M</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>O'Reilly</surname>
+            <givenname>Catherine</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+        <comment>EDI and NTL</comment>
+    </person>
+    <person>
+        <variant>
             <surname>Paterson</surname>
             <givenname>Andrew M</givenname>
             <scope>edi</scope>
@@ -828,6 +959,28 @@
             <scope>knb-lter-ntl</scope>
         </variant>
         <comment>Ontario Ministry of the Environment</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Peters</surname>
+            <givenname>Debra</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Peters</surname>
+            <givenname>Debra</givenname>
+            <scope>knb-lter-jrn</scope>
+        </variant>
+        <variant>
+            <surname>Peters</surname>
+            <givenname>Debra C</givenname>
+            <scope>knb-lter-jrn</scope>
+        </variant>
+        <variant>
+            <surname>Peters</surname>
+            <givenname>Debra C</givenname>
+            <scope>knb-lter-sev</scope>
+        </variant>
     </person>
     <person>
         <variant>
@@ -913,6 +1066,23 @@
             <scope>knb-lter-cdr</scope>
         </variant>
         <comment></comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Reinmann</surname>
+            <givenname>Andrew B</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Reinmann</surname>
+            <givenname>Andy</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Reinmann</surname>
+            <givenname>Andrew</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
     </person>
     <person>
         <variant>
@@ -1023,6 +1193,30 @@
     </person>
     <person>
         <variant>
+            <surname>Sonnier</surname>
+            <givenname>Gregory</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Sonnier</surname>
+            <givenname>Grégory</givenname>
+            <scope>edi</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Steinberg</surname>
+            <givenname>Deborah</givenname>
+            <scope>knb-lter-pal</scope>
+        </variant>
+        <variant>
+            <surname>Steinberg</surname>
+            <givenname>Debbie</givenname>
+            <scope>knb-lter-pal</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
             <surname>Suding</surname>
             <givenname>Katharine</givenname>
             <scope>edi</scope>
@@ -1114,6 +1308,11 @@
         <variant>
             <surname>Walker</surname>
             <givenname>Donald A (Skip)</givenname>
+            <scope>knb-lter-nwt</scope>
+        </variant>
+        <variant>
+            <surname>Walker</surname>
+            <givenname>Skip</givenname>
             <scope>knb-lter-nwt</scope>
         </variant>
         <comment>Arctic, Alaska</comment>
