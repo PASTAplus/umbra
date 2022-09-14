@@ -51,20 +51,32 @@ import webapp.creators.propagate_names as propagate_names
 
 creators_bp = Blueprint('creators_bp', __name__)
 
-creator_names = {}
+creator_names = {}  # key is canonical name, value is list of name variants
+creator_names_reverse_lookup = {}  # key is name variant, value is list of canonical names. Usually, the canonical name
+                                   #  is unique, but very rarely there are multiple canonical names for a name variant.
+
+
 logger = daiquiri.getLogger(Config.LOG_FILE)
 
 
 def log_info(msg):
-    app = Flask(__name__)
-    with app.app_context():
-        current_app.logger.info(msg)
+    # If we're running code to test it outside of Flask, we'll get a TypeError, 'NoneType' object is not iterable
+    try:
+        app = Flask(__name__)
+        with app.app_context():
+            current_app.logger.info(msg)
+    except TypeError as e:
+        print(msg)
 
 
 def log_error(msg):
-    app = Flask(__name__)
-    with app.app_context():
-        current_app.logger.error(msg)
+    # If we're running code to test it outside of Flask, we'll get a TypeError, 'NoneType' object is not iterable
+    try:
+        app = Flask(__name__)
+        with app.app_context():
+            current_app.logger.error(msg)
+    except TypeError as e:
+        print(msg)
 
 
 @creators_bp.before_request
@@ -166,6 +178,7 @@ def get_changes():
     updates = requests.get(url).text
     if not updates:
         return
+    # print(updates)
     root = ET.fromstring(updates)
     package_id_elements = root.findall('./dataPackage/packageId')
     for package_id_element in package_id_elements:
@@ -375,3 +388,66 @@ def init_raw_db():
     propagate_names.init_responsible_parties_raw_db()
     return f'Table {Config.RESPONSIBLE_PARTIES_RAW_TABLE_NAME} has been initialized', 200
 
+
+def create_creator_names_reverse_lookup():
+    global creator_names, creator_names_reverse_lookup
+
+    for name in creator_names.keys():
+        for variant in creator_names[name]:
+            value = creator_names_reverse_lookup.get(variant, [])
+            value.append(name)
+            creator_names_reverse_lookup[variant] = value
+
+    return creator_names_reverse_lookup
+
+
+def get_creators_for_scope(scope):
+    global creator_names
+
+    init_names()
+    create_creator_names_reverse_lookup()
+
+    conn = db.get_conn()
+
+    scope = scope.lower()
+    with conn.cursor() as cur:
+        query = f"select surname, givenname from {Config.RESPONSIBLE_PARTIES_TABLE_NAME} " \
+                f"where rp_type='creator' and scope='{scope}'"
+        cur.execute(query)
+        names_in_scope = set(cur.fetchall())
+
+    canonical_names_in_scope = set()
+    names_in_scope = set([f"{name[0]}, {name[1]}" for name in names_in_scope])
+    # print('raw_names_in_scope', len(names_in_scope))
+    # print_list(sorted(names_in_scope))
+    # print()
+    not_found = []
+    for name in names_in_scope:
+        if name in creator_names_reverse_lookup:
+            for canonical_name in creator_names_reverse_lookup[name]:
+                canonical_names_in_scope.add(canonical_name)
+        else:
+            # not_found should include only things like 'United States Fish and Wildlife Service'
+            # The list is captured here for debugging purposes
+            not_found.append(name)
+
+    return sorted(canonical_names_in_scope, key=names_key)
+
+
+@creators_bp.route('/names_for_scope/<scope>', methods=['GET'])
+def names_for_scope(scope):
+    return jsonify(get_creators_for_scope(scope))
+
+
+def print_list(l):
+    for item in l:
+        print(item)
+
+
+if __name__ == '__main__':
+    # get_changes()
+    # names = get_creators_for_scope('knb-lter-mcr')
+    # print('names_in_scope', len(names))
+    # print_list(sorted(names))
+    # print()
+    pass
