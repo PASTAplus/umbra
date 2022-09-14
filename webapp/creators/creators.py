@@ -401,6 +401,17 @@ def create_creator_names_reverse_lookup():
     return creator_names_reverse_lookup
 
 
+def check_scope_existence(scope):
+    scope = scope.lower()
+
+    conn = db.get_conn()
+    with conn.cursor() as cur:
+        query = f"select scope from {Config.RESPONSIBLE_PARTIES_TABLE_NAME} " \
+                f"where scope='{scope}' limit 1"
+        cur.execute(query)
+        return len(cur.fetchall()) > 0
+
+
 def get_creators_for_scope(scope):
     global creator_names
 
@@ -436,6 +447,8 @@ def get_creators_for_scope(scope):
 
 @creators_bp.route('/names_for_scope/<scope>', methods=['GET'])
 def names_for_scope(scope):
+    if not check_scope_existence(scope):
+        return f'Scope {scope} not found', 400
     return jsonify(get_creators_for_scope(scope))
 
 
