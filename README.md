@@ -7,10 +7,10 @@ APIs for "shadow" metadata
  * __Get list of creator names__ <br>
     GET https://umbra-d.edirepository.org/creators/names <br>
     Returns a list of all normalized names: <br>
-    [“Abbaszadegan, Morteza”,“Abbott, Benjamin”,“Abendroth, Diane”,“Aber, John”, etc. ] <br>
+    [“Abbaszadegan, Morteza”,“Abbott, Benjamin”,“Abendroth, Diane”,“Aber, John”, etc.] <br>
     Status 200
 
- * __Get list of creator names for a particular scope (PID)__ <br>
+ * __Get list of creator names for a particular scope (e.g. edi, knb-lter-arc)__ <br>
     GET https://umbra-d.edirepository.org/creators/names_for_scope/knb-lter-arc <br>
     Returns a list of normalized names for creators associated with the scope: <br>
     ["Abbott, Benjamin","Asmus, Ashley L","Barker Plotkin, Audrey","Bennington, Cynthia", etc.]<br>
@@ -32,7 +32,7 @@ APIs for "shadow" metadata
     For a name NOT in the list returned by the names API, e.g., "Python, Monty" <br>
     GET https://umbra-d.edirepository.org/creators/name_variants/Python, Monty <br>
     Returns: <br>
-    [Name “Python, Monty” not found <br>
+    [Name “Python, Monty” not found] <br>
     Status 400
 
 ### APIs used to keep the names database up-to-date:
