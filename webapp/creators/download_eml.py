@@ -205,6 +205,7 @@ def get_single_eml_file(scope, identifier, version):
 
 
 if __name__ == '__main__':
+    pass
     # get_all()
 
 #    error_cases = [
