@@ -27,9 +27,15 @@ MAX_RETRIES = 5
 TO_SKIP = ['ecotrends', 'msb-cap', 'msb-paleon', 'msb-tempbiodev', 'lter-landsat', 'lter-landsat-ledaps']
 
 
+def get_text(url):
+    r = requests.get(url)
+    r.encoding = 'utf-8'
+    return r.text
+
+
 def get_scopes():
     url = f'{PASTA_BASE}/package/eml/'
-    scopes = requests.get(url).text.replace('\n', ' ')
+    scopes = get_text(url).replace('\n', ' ')
     return scopes.split()
 
 
@@ -41,13 +47,13 @@ def get_identifiers(scope):
 
 def get_versions(scope, identifier):
     url = f'{PASTA_BASE}/package/eml/{scope}/{identifier}/'
-    versions = requests.get(url).text.replace('\n', ' ')
+    versions = get_text(url).replace('\n', ' ')
     return versions.split()
 
 
 def get_latest_version(scope, identifier):
     url = f'{PASTA_BASE}/package/eml/{scope}/{identifier}/'
-    versions = requests.get(url).text.replace('\n', ' ')
+    versions = get_text(url).replace('\n', ' ')
     return versions.split()[-1]
 
 
@@ -59,7 +65,9 @@ def get_eml(scope, identifier, version):
     retries = 0
     while retries < MAX_RETRIES:
         try:
-            eml = requests.get(url).text
+            r = requests.get(url)
+            r.encoding = 'utf-8'
+            eml = r.text
             return eml  # no exception, so break out of the retry loop
         except:
             print('Exception: ', sys.exc_info()[0], flush=True)
@@ -92,7 +100,7 @@ def get_all_eml():
             if not eml:
                 continue
             filepath = f'{EML_FILES_PATH}/{scope}.{identifier}.{version}.xml'
-            with open(filepath, 'w') as fp:
+            with open(filepath, 'w', encoding='utf-8') as fp:
                 fp.write(eml)
 
 
@@ -117,7 +125,7 @@ async def get_metadata(scope: str, identifier: str, session: ClientSession):
     while retries < MAX_RETRIES:
         try:
             url = f'{PASTA_BASE}/package/eml/{scope}/{identifier}/'
-            versions = requests.get(url).text.replace('\n', ' ')
+            versions = get_text(url).replace('\n', ' ')
             version = versions.split()[-1]
             break  # no exception, so break out of the retry loop
         except:
@@ -149,7 +157,7 @@ async def get_metadata(scope: str, identifier: str, session: ClientSession):
     if not eml:
         return
     filepath = f'{EML_FILES_PATH}/{scope}.{identifier}.{version}.xml'
-    with open(filepath, 'w') as fp:
+    with open(filepath, 'w', encoding='utf-8') as fp:
         fp.write(eml)
 
 
@@ -188,8 +196,16 @@ def get_all():
     asyncio.run(get_all_eml_async())
 
 
+def get_single_eml_file(scope, identifier, version):
+    eml = get_eml(scope, identifier, version)
+    if eml:
+        filepath = f'/Users/jide/Downloads/{scope}.{identifier}.{version}.xml'
+        with open(filepath, 'w', encoding='utf-8') as fp:
+            fp.write(eml)
+
+
 if __name__ == '__main__':
-    get_all()
+    # get_all()
 
 #    error_cases = [
 #            ('edi', '393', '2'),
@@ -201,5 +217,5 @@ if __name__ == '__main__':
 #    for scope, identifier, version in error_cases:
 #        eml = get_eml(scope, identifier, version)
 #        filepath = f'{EML_FILES_PATH}/{scope}.{identifier}.{version}.xml'
-#        with open(filepath, 'w') as fp:
+#        with open(filepath, 'w', encoding='utf-8') as fp:
 #            fp.write(eml)

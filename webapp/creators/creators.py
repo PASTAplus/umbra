@@ -47,6 +47,7 @@ import xml.etree.ElementTree as ET
 from webapp.config import Config
 import webapp.creators.corrections as corrections
 import webapp.creators.db as db
+import webapp.creators.download_eml as download_eml
 import webapp.creators.propagate_names as propagate_names
 
 creators_bp = Blueprint('creators_bp', __name__)
@@ -85,7 +86,7 @@ def init_names():
 
     creator_names = {}
 
-    with open(f'{Config.DATA_FILES_PATH}/creator_names.txt', 'r') as names_file:
+    with open(f'{Config.DATA_FILES_PATH}/creator_names.txt', 'r', encoding='utf-8-sig') as names_file:
         creator_names = ast.literal_eval(names_file.read())
 
     # Names that have been overridden (e.g., typos) need to be included in the list of variants
@@ -111,7 +112,7 @@ def init_names():
 
 def save_last_update_date(now):
     last_update_path = f'{Config.DATA_FILES_PATH}/last_update.txt'
-    with open(last_update_path, 'w') as last_update_file:
+    with open(last_update_path, 'w', encoding='utf-8') as last_update_file:
         last_update_file.write(now.strftime("%Y-%m-%d"))
 
 
@@ -167,7 +168,7 @@ def get_changes():
     from_date = '2021-10-01'
     last_update_path = f'{Config.DATA_FILES_PATH}/last_update.txt'
     if os.path.exists(last_update_path):
-        with open(last_update_path, 'r') as last_update_file:
+        with open(last_update_path, 'r', encoding='utf-8-sig') as last_update_file:
             from_date = last_update_file.readline().strip()
     now = datetime.now()
     # Get changes since the from date
@@ -175,7 +176,7 @@ def get_changes():
     log_info(f'getting changes from PASTA: {url}')
     added_package_ids = []
     removed_package_ids = []
-    updates = requests.get(url).text
+    updates = download_eml.get_text(url)
     if not updates:
         return
     # print(updates)
@@ -196,9 +197,9 @@ def get_changes():
         # Get the EML and save as xml file
         url = f'https://pasta.lternet.edu/package/metadata/eml/{scope}/{identifier}/{revision}'
         log_info(f'getting EML from PASTA:  {url}')
-        eml = requests.get(url).text
+        eml = download_eml.get_text(url)
         filename = f'{Config.EML_FILES_PATH}/{scope}.{identifier}.{revision}.xml'
-        with open(filename, 'w') as xml_file:
+        with open(filename, 'w', encoding='utf-8') as xml_file:
             xml_file.write(eml)
     delete_old_revisions(removed_package_ids)
     save_last_update_date(now)
@@ -238,6 +239,35 @@ def variants(name):
         return (f'Name "{name}" not found'), 400
 
 
+@creators_bp.route('/repair/<pid>', methods=['POST'])
+def repair(pid):
+    log_info(f'repair...  pid={pid}')
+
+    scope, id, revision = parse_package_id(pid)
+    # Remove the existing EML file
+    filename = f'{Config.EML_FILES_PATH}/{pid}.xml'
+    added_package_ids = [pid]
+    removed_package_ids = []
+    try:
+        os.remove(filename)
+        removed_package_ids.append(pid)
+    except FileNotFoundError:
+        pass
+    # Get the EML and save as xml file
+    url = f'https://pasta.lternet.edu/package/metadata/eml/{scope}/{id}/{revision}'
+    log_info(f'getting EML from PASTA:  {url}')
+    eml = download_eml.get_text(url)
+    filename = f'{Config.EML_FILES_PATH}/{scope}.{id}.{revision}.xml'
+    with open(filename, 'w', encoding='utf-8') as xml_file:
+        xml_file.write(eml)
+    propagate_names.gather_and_prepare_data(added_package_ids, removed_package_ids)
+    propagate_names.process_names()
+    _, orphan_pids = find_orphans()
+    flush_orphans(orphan_pids)
+    init_names()
+    return f'Package "{pid}" repaired', 200
+
+
 def flush_old_dups():
     filelist = sorted(glob.glob(f'{Config.POSSIBLE_DUPS_FILES_PATH}/possible_dups_*.txt'))
     if filelist:
@@ -255,7 +285,7 @@ def get_old_dups():
         # We want to return the oldest saved list. The user may have looked at possible_dups
         #  multiple times, but until they flush, we can't assume they've resolved dups.
         old_dups_filename = filelist[0]
-        with open(old_dups_filename, 'r') as dups_file:
+        with open(old_dups_filename, 'r', encoding='utf-8-sig') as dups_file:
             dups = eval(dups_file.read())
 
     dups_dict = {}
@@ -371,7 +401,7 @@ def possible_dups():
     timestamp = datetime.now().date().strftime('%Y_%m_%d') + '__' + datetime.now().time().strftime('%H_%M_%S')
     filename = f"possible_dups_{timestamp}.txt"
     os.makedirs(f"{Config.POSSIBLE_DUPS_FILES_PATH}/", exist_ok=True)
-    with open(f"{Config.POSSIBLE_DUPS_FILES_PATH}/{filename}", 'w') as dups_file:
+    with open(f"{Config.POSSIBLE_DUPS_FILES_PATH}/{filename}", 'w', encoding='utf-8') as dups_file:
         dups_file.write(str(jsonify(output).json))
 
     # Go thru and get all the lines with change markers and prepend them to the output
@@ -457,10 +487,10 @@ def print_list(l):
         print(item)
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
     # get_changes()
     # names = get_creators_for_scope('knb-lter-mcr')
     # print('names_in_scope', len(names))
     # print_list(sorted(names))
     # print()
-    pass
+    # pass

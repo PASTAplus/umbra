@@ -133,7 +133,7 @@ class ORCIDCorrection:
 
 
 def init_person_variants():
-    with open(f'{Config.DATA_FILES_PATH}/{Config.PERSON_VARIANTS_FILE}', 'r') as variants_file:
+    with open(f'{Config.DATA_FILES_PATH}/{Config.PERSON_VARIANTS_FILE}', 'r', encoding='utf-8') as variants_file:
         xml = variants_file.read()
 
     persons = []
@@ -159,7 +159,7 @@ def init_person_variants():
 
 
 def init_nicknames():
-    with open(f'{Config.DATA_FILES_PATH}/{Config.NICKNAMES_FILE}', 'r') as nicknames_file:
+    with open(f'{Config.DATA_FILES_PATH}/{Config.NICKNAMES_FILE}', 'r', encoding='utf-8') as nicknames_file:
         xml = nicknames_file.read()
 
     nicknames = []
@@ -173,7 +173,7 @@ def init_nicknames():
 
 
 def init_override_corrections():
-    with open(f'{Config.DATA_FILES_PATH}/{Config.OVERRIDES_FILE}', 'r') as overrides_file:
+    with open(f'{Config.DATA_FILES_PATH}/{Config.OVERRIDES_FILE}', 'r', encoding='utf-8') as overrides_file:
         xml = overrides_file.read()
 
     override_corrections = []
@@ -196,7 +196,7 @@ def init_override_corrections():
 
 
 def init_orcid_corrections():
-    with open(f'{Config.DATA_FILES_PATH}/{Config.ORCID_CORRECTIONS_FILE}', 'r') as orcids_file:
+    with open(f'{Config.DATA_FILES_PATH}/{Config.ORCID_CORRECTIONS_FILE}', 'r', encoding='utf-8') as orcids_file:
         xml = orcids_file.read()
 
     orcid_corrections = []
