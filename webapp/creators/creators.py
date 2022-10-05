@@ -34,7 +34,6 @@
 from datetime import datetime, date, timedelta
 import glob
 import os
-import requests
 
 import ast
 import daiquiri
@@ -253,6 +252,13 @@ def repair(pid):
         removed_package_ids.append(pid)
     except FileNotFoundError:
         pass
+
+    # Remove responsible parties from the database whose package id is pid
+    conn = db.get_conn()
+    with conn.cursor() as cur:
+        query = f"delete from {Config.RESPONSIBLE_PARTIES_TABLE_NAME} where pid='{pid}'"
+        cur.execute(query)
+
     # Get the EML and save as xml file
     url = f'https://pasta.lternet.edu/package/metadata/eml/{scope}/{id}/{revision}'
     log_info(f'getting EML from PASTA:  {url}')
