@@ -259,6 +259,9 @@ def repair(pid):
         query = f"delete from {Config.RESPONSIBLE_PARTIES_TABLE_NAME} where pid='{pid}'"
         log_info(query)
         cur.execute(query)
+        query = f"delete from {Config.RESPONSIBLE_PARTIES_RAW_TABLE_NAME} where pid='{pid}'"
+        log_info(query)
+        cur.execute(query)
 
     # Get the EML and save as xml file
     url = f'https://pasta.lternet.edu/package/metadata/eml/{scope}/{id}/{revision}'
