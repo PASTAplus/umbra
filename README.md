@@ -5,32 +5,32 @@ APIs for "shadow" metadata
 ### APIs used by the Data Portal:
 
  * __Get list of creator names__ <br>
-    GET https://umbra-d.edirepository.org/creators/names <br>
+    GET https://umbra.edirepository.org/creators/names <br>
     Returns a list of all normalized names: <br>
     [“Abbaszadegan, Morteza”,“Abbott, Benjamin”,“Abendroth, Diane”,“Aber, John”, etc.] <br>
     Status 200
 
  * __Get list of creator names for a particular scope (e.g. edi, knb-lter-arc)__ <br>
-    GET https://umbra-d.edirepository.org/creators/names_for_scope/knb-lter-arc <br>
+    GET https://umbra.edirepository.org/creators/names_for_scope/knb-lter-arc <br>
     Returns a list of normalized names for creators associated with the scope: <br>
     ["Abbott, Benjamin","Asmus, Ashley L","Barker Plotkin, Audrey","Bennington, Cynthia", etc.]<br>
     Status 200
 
     For an invalid scope, e.g., "XYZ" <br>
-    GET https://umbra-d.edirepository.org/creators/names_for_scope/XYZ <br>
+    GET https://umbra.edirepository.org/creators/names_for_scope/XYZ <br>
     Returns: <br>
     [Scope XYZ not found] <br>
     Status 400
 
  * __Get variants of a creator name__ <br>
     For a name in the list returned by the names API, e.g., "McKnight, Diane M" <br>
-    GET https://umbra-d.edirepository.org/creators/name_variants/McKnight, Diane M <br>
+    GET https://umbra.edirepository.org/creators/name_variants/McKnight, Diane M <br>
     Returns a list of variants found for that creator name: <br>
     [“McKnight, Diane”,“McKnight, Diane M”,“Mcknight, Diane”,“Mcnight, Diane”] <br>
     Status 200
 
     For a name NOT in the list returned by the names API, e.g., "Python, Monty" <br>
-    GET https://umbra-d.edirepository.org/creators/name_variants/Python, Monty <br>
+    GET https://umbra.edirepository.org/creators/name_variants/Python, Monty <br>
     Returns: <br>
     [Name “Python, Monty” not found] <br>
     Status 400
@@ -38,16 +38,21 @@ APIs for "shadow" metadata
 ### APIs used to keep the names database up-to-date:
 
  * __Update creator names__ <br>
-    POST https://umbra-d.edirepository.org/creators/names <br>
+    POST https://umbra.edirepository.org/creators/names <br>
     This is run as a cronjob on each umbra server. It gets the newly-added EML files from PASTA and processes them to find new creator names, if any. 
 
  * __Get possible duplicates__ <br>
-    GET http://umbra-d.edirepository.org/creators/possible_dups <br>
+    GET https://umbra.edirepository.org/creators/possible_dups <br>
     There's information on how to use this API below in the section on maintaining the creator names database.
 
  * __Flush possible duplicates__ <br>
-    POST http://umbra-d.edirepository.org/creators/possible_dups <br>
+    POST https://umbra.edirepository.org/creators/possible_dups <br>
     There's information on how to use this API below in the section on maintaining the creator names database.
+
+ * __Repair a data package that was processed incorrectly__ <br>
+    POST https://umbra.edirepository.org/creators/repair <br>
+    If a data package was processed incorrectly (e.g., if UTF-8 characters were incorrectly decoded), force it to be re-processed. The repair API takes the package ID as a parameter. <br>
+    E.g., POST https://umbra.edirepository.org/creators/repair/edi.1157.1
 
 
 ### Manual steps involved in creating the creator names database:
@@ -67,7 +72,7 @@ The following steps apply to a newly-instantiated umbra server. I.e., they are t
 
  * __Initialize the "raw" responsible parties database table__ <br>
     After the EML files have been downloaded via download_eml.py, they need to be parsed and their "responsible parties" entries saved in a database table. Accomplish this via the following API: <br>
-    POST https://umbra-d.edirepository.org/creators/init_raw_db
+    POST https://umbra.edirepository.org/creators/init_raw_db
     <br>
     
 * The two steps above, getting the initial set of EML files and initializing the "raw" responsible parties database table, only need to be done once. Subsequently, new EML files will be downloaded and the database updated via the update creator names API described above.
@@ -76,7 +81,7 @@ The following steps apply to a newly-instantiated umbra server. I.e., they are t
 ### Manual steps involved in maintaining the creator names database:
 The umbra software does its best to resolve and normalize creator names programmatically. To determine if several name variants (e.g., James T Kirk, James Kirk, Jim Kirk, J Kirk) actually refer to the same person, it looks at various forms of "evidence" (email address, organization name, etc.) in the EML files. In some cases, however, it is unable confidently to conclude that two variants are the same person, and manual intervention is needed. Either evidence is lacking, or a surname may be misspelled in a particular case, for example.
 
-The API GET http://umbra-d.edirepository.org/creators/possible_dups returns a list of cases that should be looked at manually. They are cases where a given surname has multiple normalized givennames. The list starts with dups that are new, followed by a line that reads  "==================================================". For example, a call to this API returned (partial list):
+The API GET https://umbra.edirepository.org/creators/possible_dups returns a list of cases that should be looked at manually. They are cases where a given surname has multiple normalized givennames. The list starts with dups that are new, followed by a line that reads  "==================================================". For example, a call to this API returned (partial list):
 ```
 [
     "Adams: Byron, Henry D, Jesse B, Leslie M, Mary Beth, Phyllis C",
@@ -163,9 +168,9 @@ The problem is the Jess Zimmerman in the edi scope. But note that here we do hav
 ```
 These changes should be made in Github and pulled down to the server.
 
-Once we have resolved all of the suspicious cases, we need to tell umbra to flush the "new" possible dups so the next time we ask for possible dups we aren't given the same new cases to check out all over again. To flush, __POST http://umbra-d.edirepository.org/creators/possible_dups__.
+Once we have resolved all of the suspicious cases, we need to tell umbra to flush the "new" possible dups so the next time we ask for possible dups we aren't given the same new cases to check out all over again. To flush, __POST https://umbra.edirepository.org/creators/possible_dups__.
 
-Now, if we do a __GET http://umbra-d.edirepository.org/creators/possible_dups__, the returned list will look like:
+Now, if we do a __GET https://umbra.edirepository.org/creators/possible_dups__, the returned list will look like:
 ```
 [
     "==================================================",
