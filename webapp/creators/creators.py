@@ -257,6 +257,7 @@ def repair(pid):
     conn = db.get_conn()
     with conn.cursor() as cur:
         query = f"delete from {Config.RESPONSIBLE_PARTIES_TABLE_NAME} where pid='{pid}'"
+        log_info(query)
         cur.execute(query)
 
     # Get the EML and save as xml file

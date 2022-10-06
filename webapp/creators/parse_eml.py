@@ -77,7 +77,7 @@ eml_text_by_pid = {}
 
 def xml_to_json(filepath):
     cwd = os.getcwd()
-    with open(filepath, 'r') as fp:
+    with open(filepath, 'r', encoding='utf-8') as fp:
         xml = fp.read()
         try:
             return from_xml(xml)
@@ -374,13 +374,13 @@ def collect_responsible_parties(filename, added_package_ids=None, removed_packag
     db.prune_pids(responsible_parties, removed_package_ids)
     # write the existing responsible parties, minus the ones to be removed
     output_filename = f'{Config.EML_FILES_PATH}/{filename}'
-    with open(output_filename, 'w') as output_file:
+    with open(output_filename, 'w', encoding='utf-8') as output_file:
         for _, val in responsible_parties.items():
             for line in val:
                 output_file.write(line)
                 output_file.write('\n')
     # now, append the new responsible parties
-    with open(output_filename, 'a') as output_file:
+    with open(output_filename, 'a', encoding='utf-8') as output_file:
         filelist = get_existing_eml_files()
         if trace:
             log_info(f'len(filelist)={len(filelist)}')
@@ -402,7 +402,7 @@ def collect_responsible_parties(filename, added_package_ids=None, removed_packag
 
 
 def collect_titles_and_abstracts(output_filename):
-    with open(output_filename, 'w') as output_file:
+    with open(output_filename, 'w', encoding='utf-8') as output_file:
         filelist = get_existing_eml_files()
         for index, filename in enumerate(filelist):
             # if filename.startswith('edi.'):  # TEMP
@@ -418,7 +418,7 @@ def collect_titles_and_abstracts(output_filename):
 
 
 def collect_method_step_descriptions(output_filename):
-    with open(output_filename, 'w') as output_file:
+    with open(output_filename, 'w', encoding='utf-8') as output_file:
         filelist = get_existing_eml_files()
         for index, filename in enumerate(filelist):
             # if filename.startswith('edi.'):  # TEMP
