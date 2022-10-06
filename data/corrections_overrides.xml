@@ -26,6 +26,39 @@
     </override>
     <override>
         <original>
+            <surname>Abrah�o</surname>
+            <givenname>Carlos R</givenname>
+        </original>
+        <corrected>
+            <surname>Abrahão</surname>
+            <givenname>Carlos R</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Batista</surname>
+            <givenname>Fl�via R Q</givenname>
+        </original>
+        <corrected>
+            <surname>Batista</surname>
+            <givenname>Flávia R Q</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Camilo</surname>
+            <givenname>Andr� R</givenname>
+        </original>
+        <corrected>
+            <surname>Camilo</surname>
+            <givenname>André R</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
             <surname>Fisk</surname>
             <givenname>Melanie</givenname>
         </original>
@@ -34,6 +67,17 @@
             <givenname>Melany</givenname>
         </corrected>
         <scope>knb-lter-nwt</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Gon�alves</surname>
+            <givenname>Henrique S</givenname>
+        </original>
+        <corrected>
+            <surname>Gonçalves</surname>
+            <givenname>Henrique S</givenname>
+        </corrected>
+        <scope>edi</scope>
     </override>
     <override>
         <original>
@@ -212,6 +256,17 @@
         </corrected>
         <scope>edi</scope>
     </override>
+    <override>
+        <original>
+            <surname>Oliveira</surname>
+            <givenname>A�lton O</givenname>
+        </original>
+        <corrected>
+            <surname>Oliveira</surname>
+            <givenname>Aílton O</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>    
     <override>
         <original>
             <surname>Quintana Ascencio</surname>
