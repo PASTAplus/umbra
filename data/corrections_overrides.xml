@@ -247,6 +247,17 @@
     </override>
     <override>
         <original>
+            <surname>Grégory</surname>
+            <givenname>Sonnier</givenname>
+        </original>
+        <corrected>
+            <surname>Sonnier</surname>
+            <givenname>Grégory</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
             <surname>Suding</surname>
             <givenname>Katherine</givenname>
         </original>
