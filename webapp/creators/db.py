@@ -68,7 +68,7 @@ def find_entries(line, tag):
 def parse_responsible_parties_file(filename):
     filepath = f'{Config.EML_FILES_PATH}/{filename}'
     try:
-        with open(filepath, 'r') as rp_file:
+        with open(filepath, 'r', encoding='utf-8') as rp_file:
             lines = rp_file.read().split('\n')
     except FileNotFoundError:
         lines = []
@@ -120,7 +120,7 @@ def build_responsible_party_raw_db(filename, added_package_ids=None):
     conn = get_conn()
 
     filepath = f'{Config.EML_FILES_PATH}/{filename}'
-    with open(filepath, 'r') as rp_file:
+    with open(filepath, 'r', encoding='utf-8') as rp_file:
         lines = rp_file.read().split('\n')
     for line in lines:
         try:

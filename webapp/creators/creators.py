@@ -267,6 +267,7 @@ def repair(pid):
     filename = f'{Config.EML_FILES_PATH}/{scope}.{id}.{revision}.xml'
     with open(filename, 'w', encoding='utf-8') as xml_file:
         xml_file.write(eml)
+
     propagate_names.gather_and_prepare_data(added_package_ids, removed_package_ids)
     propagate_names.process_names()
     _, orphan_pids = find_orphans()
