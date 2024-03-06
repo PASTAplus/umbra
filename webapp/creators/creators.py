@@ -389,7 +389,11 @@ def possible_dups():
     old_dups = get_old_dups()
     givennames = []
     for name in names:
-        surname, givenname = name.split(', ')
+        try:
+            surname, givenname = name.split(', ')
+        except ValueError:
+            log_error(f'**** Error splitting name: {name}')
+            continue
         if not prev_surname:
             prev_surname = surname
         if prev_surname and surname != prev_surname:
