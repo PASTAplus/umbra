@@ -129,6 +129,23 @@
     </person>
     <person>
         <variant>
+            <surname>Brown</surname>
+            <givenname>Cynthia</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Brown</surname>
+            <givenname>Cynthia S</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Brown</surname>
+            <givenname>Cindi</givenname>
+            <scope>edi</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
             <surname>Brzostek</surname>
             <givenname>Edward</givenname>
             <scope>knb-lter-hfr</scope>
@@ -266,6 +283,18 @@
     </person>
     <person>
         <variant>
+            <surname>Dokulil</surname>
+            <givenname>Martin T</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Dokulil</surname>
+            <givenname>Martin</givenname>
+            <scope>knb-lter-ntl</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
             <surname>Drake</surname>
             <givenname>John E</givenname>
             <scope>knb-lter-hbr</scope>
@@ -363,6 +392,18 @@
             <scope>knb-lter-ntl</scope>
         </variant>
         <comment>Unusual name, EDI, NTL</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Grandy</surname>
+            <givenname>A S</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Grandy</surname>
+            <givenname>Stuart</givenname>
+            <scope>edi</scope>
+        </variant>
     </person>
     <person>
         <variant>
@@ -582,6 +623,18 @@
     </person>
     <person>
         <variant>
+            <surname>Hutyra</surname>
+            <givenname>Lucy</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Hutyra</surname>
+            <givenname>Lucy R</givenname>
+            <scope>edi</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
             <surname>Jevon</surname>
             <givenname>Fiona V</givenname>
             <scope>knb-lter-hbr</scope>
@@ -649,10 +702,27 @@
         </variant>
         <variant>
             <surname>Juice</surname>
+            <givenname>Stephanie m</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Juice</surname>
             <givenname>Stephanie</givenname>
             <scope>knb-lter-hfr</scope>
         </variant>
         <comment>Unusual name, HBR, HFR</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Keen</surname>
+            <givenname>Rachel M</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Keen</surname>
+            <givenname>Rachel</givenname>
+            <scope>knb-lter-knz</scope>
+        </variant>
     </person>
     <person>
         <variant>
@@ -697,6 +767,23 @@
             <scope>knb-lter-ntl</scope>
         </variant>
         <comment>Zurich</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>LaMontagne</surname>
+            <givenname>Jalene M</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>LaMontagne</surname>
+            <givenname>Jalene</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>LaMontagne</surname>
+            <givenname>Jalene</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
     </person>
     <person>
         <variant>
@@ -797,6 +884,23 @@
             <scope>knb-lter-bnz</scope>
         </variant>
         <comment>Canada, Alaska</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Matthes</surname>
+            <givenname>Jaclyn H</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Matthes</surname>
+            <givenname>Jaclyn</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Matthes</surname>
+            <givenname>Jaclyn</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
     </person>
     <person>
         <variant>
@@ -984,6 +1088,23 @@
     </person>
     <person>
         <variant>
+            <surname>Pickett</surname>
+            <givenname>Steward</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Pickett</surname>
+            <givenname>Steward</givenname>
+            <scope>knb-lter-bes</scope>
+        </variant>
+        <variant>
+            <surname>Pickett</surname>
+            <givenname>Steward TA</givenname>
+            <scope>knb-lter-bes</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
             <surname>Plisnier</surname>
             <givenname>Pierre-Denis</givenname>
             <scope>edi</scope>
@@ -1082,6 +1203,23 @@
             <surname>Reinmann</surname>
             <givenname>Andrew</givenname>
             <scope>knb-lter-hfr</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Rocci</surname>
+            <givenname>Katherine</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Rocci</surname>
+            <givenname>Katherine S</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Rocci</surname>
+            <givenname>Katherine</givenname>
+            <scope>knb-lter-knz</scope>
         </variant>
     </person>
     <person>
@@ -1201,6 +1339,23 @@
             <surname>Sonnier</surname>
             <givenname>Grégory</givenname>
             <scope>edi</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Sonti</surname>
+            <givenname>Nancy</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Sonti</surname>
+            <givenname>Nancy</givenname>
+            <scope>knb-lter-bes</scope>
+        </variant>
+        <variant>
+            <surname>Sonti</surname>
+            <givenname>Nancy F</givenname>
+            <scope>knb-lter-bes</scope>
         </variant>
     </person>
     <person>
@@ -1371,6 +1526,23 @@
             <surname>Wilkinson</surname>
             <givenname>Grace</givenname>
             <scope>knb-lter-vcr</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Willbern</surname>
+            <givenname>Thomas Austin</givenname>
+            <scope>knb-lter-nwt</scope>
+        </variant>
+        <variant>
+            <surname>Willbern</surname>
+            <givenname>T Austin</givenname>
+            <scope>knb-lter-nwt</scope>
+        </variant>
+        <variant>
+            <surname>Willbern</surname>
+            <givenname>Austin</givenname>
+            <scope>knb-lter-nwt</scope>
         </variant>
     </person>
     <person>
