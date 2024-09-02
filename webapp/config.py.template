@@ -18,13 +18,18 @@ from pathlib import Path
 class Config(object):
 
     BASE_FOLDER = '<base folder>'
+
     DATA_FILES_PATH = f'{BASE_FOLDER}/data'
     if not Path(DATA_FILES_PATH).exists():
         Path(DATA_FILES_PATH).mkdir()
+
     EML_FILES_PATH = f'{BASE_FOLDER}/eml_files'
     if not Path(EML_FILES_PATH).exists():
         Path(EML_FILES_PATH).mkdir()
+
     POSSIBLE_DUPS_FILES_PATH = f'{DATA_FILES_PATH}/possible_dups_results'
+    if not Path(POSSIBLE_DUPS_FILES_PATH).exists():
+        Path(POSSIBLE_DUPS_FILES_PATH).mkdir()
 
     LOG_FILE = 'umbra.log'
 
