@@ -12,20 +12,16 @@
 :Created:
     6/1/21
 """
-
+from collections import namedtuple
 import os
 import daiquiri
-from flask import (
-    Flask, Blueprint, jsonify, request, current_app
-)
+from flask import Flask, Blueprint, jsonify, request, current_app
 from unidecode import unidecode
 from lxml import etree
 
 from multidict import CIMultiDict
-from recordclass import recordclass
 
 from webapp.config import Config
-
 import webapp.creators.corrections as corrections
 import webapp.creators.creators as creators
 import webapp.creators.db as db
@@ -74,10 +70,9 @@ Go through the list of responsible parties in successive passes.
 named_persons_by_surname = CIMultiDict()
 named_persons_by_pid = CIMultiDict()
 
-NamedPerson = recordclass(
+NamedPerson = namedtuple(
     'NamedPerson',
-    'serial_id, pid, rp_type, givenname, surname, organization, position, address, city, country, email, '
-    'url, orcid, scope, person_variants, organization_keywords'
+    'serial_id pid rp_type givenname surname organization position address city country email url orcid scope person_variants organization_keywords'
 )
 
 '''
