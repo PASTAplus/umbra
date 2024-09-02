@@ -15,12 +15,21 @@
     6/1/21
 """
 
+from aiohttp import ClientSession
+import asyncio
 from datetime import datetime
 import os
 import requests
 import sys
+import time
+from typing import List
 
-PASTA_BASE = 'https://pasta.lternet.edu'
+
+
+
+from webapp.config import Config
+
+PASTA_BASE = f'https://{Config.PASTA_HOST}'
 EML_FILES_PATH = '../../eml_files'
 MAX_RETRIES = 5
 
@@ -61,6 +70,7 @@ def get_eml(scope, identifier, version):
     current_time = datetime.now().strftime('%H:%M:%S')
     print(f'{current_time} - Getting EML for {scope}.{identifier}.{version}', flush=True)
     url = f'{PASTA_BASE}/package/metadata/eml/{scope}/{identifier}/{version}'
+    pid = f'{scope}.{identifier}.{version}'
 
     retries = 0
     while retries < MAX_RETRIES:
@@ -105,12 +115,6 @@ def get_all_eml():
 
 
 BURST_SIZE = 10
-
-from aiohttp import ClientSession
-import asyncio
-import time
-from typing import List
-
 
 async def get_response(url: str, session: ClientSession, **kwargs) -> str:
     resp = await session.request(method='GET', url=url, **kwargs)
@@ -202,21 +206,3 @@ def get_single_eml_file(scope, identifier, version):
         filepath = f'/Users/jide/Downloads/{scope}.{identifier}.{version}.xml'
         with open(filepath, 'w', encoding='utf-8') as fp:
             fp.write(eml)
-
-
-if __name__ == '__main__':
-    pass
-    # get_all()
-
-#    error_cases = [
-#            ('edi', '393', '2'),
-#            ('knb-lter-hfr', '130', '17'),
-#            ('knb-lter-kbs', '140', '5'), # This is not available to user 'public'
-#           ('knb-lter-vcr', '281', '1')
-#    ]
-
-#    for scope, identifier, version in error_cases:
-#        eml = get_eml(scope, identifier, version)
-#        filepath = f'{EML_FILES_PATH}/{scope}.{identifier}.{version}.xml'
-#        with open(filepath, 'w', encoding='utf-8') as fp:
-#            fp.write(eml)
