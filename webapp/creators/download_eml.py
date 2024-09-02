@@ -30,7 +30,7 @@ from typing import List
 from webapp.config import Config
 
 PASTA_BASE = f'https://{Config.PASTA_HOST}'
-EML_FILES_PATH = '../../eml_files'
+EML_FILES_PATH = Config.EML_FILES_PATH
 MAX_RETRIES = 5
 
 TO_SKIP = ['ecotrends', 'msb-cap', 'msb-paleon', 'msb-tempbiodev', 'lter-landsat', 'lter-landsat-ledaps']
@@ -91,7 +91,7 @@ def get_eml(scope, identifier, version):
 
 
 def get_existing_eml_files():
-    return os.listdir(EML_FILES_PATH)
+    return os.listdir(Config.EML_FILES_PATH)
 
 
 def get_all_eml():
@@ -109,7 +109,7 @@ def get_all_eml():
             eml = get_eml(scope, identifier, version)
             if not eml:
                 continue
-            filepath = f'{EML_FILES_PATH}/{scope}.{identifier}.{version}.xml'
+            filepath = f'{Config.EML_FILES_PATH}/{scope}.{identifier}.{version}.xml'
             with open(filepath, 'w', encoding='utf-8') as fp:
                 fp.write(eml)
 
@@ -160,7 +160,7 @@ async def get_metadata(scope: str, identifier: str, session: ClientSession):
             time.sleep(1)
     if not eml:
         return
-    filepath = f'{EML_FILES_PATH}/{scope}.{identifier}.{version}.xml'
+    filepath = f'{Config.EML_FILES_PATH}/{scope}.{identifier}.{version}.xml'
     with open(filepath, 'w', encoding='utf-8') as fp:
         fp.write(eml)
 
