@@ -3,14 +3,14 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.12
+  - python=3.10
   - daiquiri
   - flask
   - requests
   - lxml
   - multidict
-  - psycopg2
-  - uwsgi
+  - psycopg2==2.9.3
+  - uwsgi==2.0.21
   - spacy
   - unidecode
   - aiohttp
