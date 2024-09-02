@@ -31,6 +31,12 @@ class Config(object):
     if not Path(POSSIBLE_DUPS_FILES_PATH).exists():
         Path(POSSIBLE_DUPS_FILES_PATH).mkdir()
 
+    CREATOR_NAMES_PATH = f'{DATA_FILES_PATH}/creator_names.txt'
+    if not Path(CREATOR_NAMES_PATH).exists():
+        Path(CREATOR_NAMES_PATH).touch()
+        with open(CREATOR_NAMES_PATH, "wt") as f:
+            f.write('{}')
+
     LOG_FILE = 'umbra.log'
 
     NICKNAMES_FILE = 'corrections_nicknames.xml'
