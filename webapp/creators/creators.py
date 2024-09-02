@@ -171,7 +171,7 @@ def get_changes():
             from_date = last_update_file.readline().strip()
     now = datetime.now()
     # Get changes since the from date
-    url = f'https://pasta.lternet.edu/package/changes/eml?fromDate={from_date}'
+    url = f'https://{Config.PASTA_HOST}/package/changes/eml?fromDate={from_date}'
     log_info(f'getting changes from PASTA: {url}')
     added_package_ids = []
     removed_package_ids = []
@@ -194,7 +194,7 @@ def get_changes():
             delete_earlier_revisions(existing_package_ids, scope, identifier, revision, removed_package_ids)
         existing_package_ids.append(package_id)
         # Get the EML and save as xml file
-        url = f'https://pasta.lternet.edu/package/metadata/eml/{scope}/{identifier}/{revision}'
+        url = f'https://{Config.PASTA_HOST}/package/metadata/eml/{scope}/{identifier}/{revision}'
         log_info(f'getting EML from PASTA:  {url}')
         eml = download_eml.get_text(url)
         filename = f'{Config.EML_FILES_PATH}/{scope}.{identifier}.{revision}.xml'
@@ -264,7 +264,7 @@ def repair(pid):
         cur.execute(query)
 
     # Get the EML and save as xml file
-    url = f'https://pasta.lternet.edu/package/metadata/eml/{scope}/{id}/{revision}'
+    url = f'https://{Config.PASTA_HOST}/package/metadata/eml/{scope}/{id}/{revision}'
     log_info(f'getting EML from PASTA:  {url}')
     eml = download_eml.get_text(url)
     filename = f'{Config.EML_FILES_PATH}/{scope}.{id}.{revision}.xml'
