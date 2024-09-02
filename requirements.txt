@@ -55,7 +55,6 @@ Pygments==2.18.0
 pyphen==0.16.0
 PySocks==1.7.1
 python-json-logger==2.0.7
-recordclass==0.22.1
 requests==2.32.3
 rfc3986==2.0.0
 rich==13.7.1

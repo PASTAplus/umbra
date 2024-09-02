@@ -19,7 +19,6 @@ dependencies:
     - textacy
     - dominate
     - flask-bootstrap
-    - recordclass
     - rfc3986
     - visitor
     - metapype
