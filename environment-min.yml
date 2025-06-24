@@ -3,20 +3,22 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.8
+  - python=3.10
   - daiquiri
   - flask
   - requests
   - lxml
   - multidict
-  - psycopg2
-  - textacy
-  - uwsgi
+  - psycopg2==2.9.3
+  - uwsgi==2.0.21
+  - spacy
+  - unidecode
+  - aiohttp
   - pip
   - pip:
+    - textacy
     - dominate
     - flask-bootstrap
-    - recordclass
     - rfc3986
     - visitor
     - metapype

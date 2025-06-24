@@ -12,14 +12,30 @@
 :Created:
     7/7/21
 """
+from pathlib import Path
 
 
 class Config(object):
 
     BASE_FOLDER = '<base folder>'
+
     DATA_FILES_PATH = f'{BASE_FOLDER}/data'
+    if not Path(DATA_FILES_PATH).exists():
+        Path(DATA_FILES_PATH).mkdir()
+
     EML_FILES_PATH = f'{BASE_FOLDER}/eml_files'
+    if not Path(EML_FILES_PATH).exists():
+        Path(EML_FILES_PATH).mkdir()
+
     POSSIBLE_DUPS_FILES_PATH = f'{DATA_FILES_PATH}/possible_dups_results'
+    if not Path(POSSIBLE_DUPS_FILES_PATH).exists():
+        Path(POSSIBLE_DUPS_FILES_PATH).mkdir()
+
+    CREATOR_NAMES_PATH = f'{DATA_FILES_PATH}/creator_names.txt'
+    if not Path(CREATOR_NAMES_PATH).exists():
+        Path(CREATOR_NAMES_PATH).touch()
+        with open(CREATOR_NAMES_PATH, "wt") as f:
+            f.write('{}')
 
     LOG_FILE = 'umbra.log'
 
@@ -32,6 +48,8 @@ class Config(object):
     RESPONSIBLE_PARTIES_TEXT_FILE = 'responsible_parties.txt'
     RESPONSIBLE_PARTIES_TABLE_NAME = 'eml_files.responsible_parties'
     RESPONSIBLE_PARTIES_RAW_TABLE_NAME = 'eml_files.responsible_parties_raw'
+
+    PASTA_HOST = '<pasta host>'
 
     DB_HOST = 'localhost'
     DB_NAME = 'pasta'

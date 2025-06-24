@@ -12,18 +12,14 @@
 :Created:
     6/1/21
 """
-
+from collections import namedtuple
 from enum import Enum, auto
 import glob
 import os
 import pickle
 
 import daiquiri
-from flask import (
-    Flask, Blueprint, jsonify, request, current_app
-)
-
-from recordclass import recordclass
+from flask import Flask, current_app
 
 from webapp.config import Config
 import webapp.creators.db as db
@@ -62,12 +58,12 @@ class EMLTextComponents(Enum):
     RELATED_PROJECT_ABSTRACTS = auto()
 
 
-ProjectText = recordclass(
+ProjectText = namedtuple(
     'ProjectText',
     'project_title project_abstract'
 )
 
-EMLText = recordclass(
+EMLText = namedtuple(
     'EMLText',
     'dataset_title dataset_abstract dataset_keywords datatable_descriptions dataset_geographic_descriptions method_step_descriptions projects related_projects'
 )
