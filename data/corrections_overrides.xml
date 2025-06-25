@@ -128,10 +128,10 @@
             <surname>Lekberg</surname>
             <givenname>Yiva</givenname>
         </original>
-        <original>
+        <corrected>
             <surname>Lekberg</surname>
             <givenname>Ylva</givenname>
-        </original>
+        </corrected>
         <scope>edi</scope>
     </override>
     <override>
@@ -139,10 +139,10 @@
             <surname>Lottig</surname>
             <givenname>Noah A</givenname>
         </original>
-        <original>
+        <corrected>
             <surname>Lottig</surname>
             <givenname>Noah R</givenname>
-        </original>
+        </corrected>
         <scope>edi</scope>
     </override>
     <override>
@@ -150,10 +150,10 @@
             <surname>Lottig</surname>
             <givenname>Noah A</givenname>
         </original>
-        <original>
+        <corrected>
             <surname>Lottig</surname>
             <givenname>Noah R</givenname>
-        </original>
+        </corrected>
         <scope>knb-lter-ntl</scope>
     </override>
     <override>
