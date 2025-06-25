@@ -136,6 +136,28 @@
     </override>
     <override>
         <original>
+            <surname>Lottig</surname>
+            <givenname>Noah A</givenname>
+        </original>
+        <original>
+            <surname>Lottig</surname>
+            <givenname>Noah R</givenname>
+        </original>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Lottig</surname>
+            <givenname>Noah A</givenname>
+        </original>
+        <original>
+            <surname>Lottig</surname>
+            <givenname>Noah R</givenname>
+        </original>
+        <scope>knb-lter-ntl</scope>
+    </override>
+    <override>
+        <original>
             <surname>Mcknight</surname>
             <givenname>Diane</givenname>
         </original>
