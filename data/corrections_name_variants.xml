@@ -15,6 +15,19 @@
     </person>
     <person>
         <variant>
+            <surname>Alexander</surname>
+            <givenname>Heather</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Alexander</surname>
+            <givenname>Heather D</givenname>
+            <scope>knb-lter-bnz</scope>
+        </variant>
+        <comment>UT Brownsville</comment>
+    </person>
+    <person>
+        <variant>
             <surname>Anneville</surname>
             <givenname>Orlane</givenname>
             <scope>edi</scope>
@@ -68,6 +81,28 @@
     </person>
     <person>
         <variant>
+            <surname>Bernhardt</surname>
+            <givenname>Emily</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Bernhardt</surname>
+            <givenname>Emily S</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Bernhardt</surname>
+            <givenname>Emily</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Bernhardt</surname>
+            <givenname>Emily S</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
             <surname>Bestelmeyer</surname>
             <givenname>Brandon</givenname>
             <scope>knb-lter-hfr</scope>
@@ -99,6 +134,18 @@
             <surname>Bowden</surname>
             <givenname>William "Breck"</givenname>
             <scope>knb-lter-arc</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Brandt</surname>
+            <givenname>Leslie</givenname>
+            <scope>knb-lter-msp</scope>
+        </variant>
+        <variant>
+            <surname>Brandt</surname>
+            <givenname>Leslie A</givenname>
+            <scope>knb-lter-msp</scope>
         </variant>
     </person>
     <person>
@@ -211,6 +258,19 @@
     </person>
     <person>
         <variant>
+            <surname>Cardenas</surname>
+            <givenname>M Bayani</givenname>
+            <scope>knb-lter-ble</scope>
+        </variant>
+        <variant>
+            <surname>Cardenas</surname>
+            <givenname>Bayani</givenname>
+            <scope>knb-lter-arc</scope>
+        </variant>
+        <comment>Email address</comment>
+    </person>
+    <person>
+        <variant>
             <surname>Cavender-Bares</surname>
             <givenname>Jeanine</givenname>
             <scope>knb-lter-bes</scope>
@@ -307,6 +367,18 @@
     </person>
     <person>
         <variant>
+            <surname>Dwyer</surname>
+            <givenname>John</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Dwyer</surname>
+            <givenname>John M</givenname>
+            <scope>edi</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
             <surname>Fergus</surname>
             <givenname>C Emi</givenname>
             <scope>edi</scope>
@@ -393,6 +465,35 @@
         </variant>
         <comment>Unusual name, EDI, NTL</comment>
     </person>
+    <person>
+        <variant>
+            <surname>Gooseff</surname>
+            <givenname>Michael</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Gooseff</surname>
+            <givenname>Michael</givenname>
+            <scope>knb-lter-mcm</scope>
+        </variant>
+        <variant>
+            <surname>Gooseff</surname>
+            <givenname>Michael</givenname>
+            <scope>knb-lter-arc</scope>
+        </variant>
+        <variant>
+            <surname>Gooseff</surname>
+            <givenname>Michael N</givenname>
+            <scope>knb-lter-and</scope>
+        </variant>
+        <variant>
+            <surname>Gooseff</surname>
+            <givenname>Michael N</givenname>
+            <scope>knb-lter-mcm</scope>
+        </variant>
+        <comment>ORCID and emails</comment>
+    </person>
+    
     <person>
         <variant>
             <surname>Grandy</surname>
@@ -524,6 +625,19 @@
         <comment>EDI, NTL, email</comment>
     </person>
     <person>
+        <variant> 
+            <surname>Helton</surname>
+            <givenname>Ashley</givenname>
+            <scope>knb-lter-cap</scope>
+        </variant>
+        <variant> 
+            <surname>Helton</surname>
+            <givenname>Ashley M</givenname>
+            <scope>edi</scope>
+        </variant>
+        <comment>UConn, email</comment>
+    </person>
+    <person>
         <variant>
             <surname>Herrick</surname>
             <givenname>Jeff</givenname>
@@ -645,6 +759,29 @@
             <scope>knb-lter-hfr</scope>
         </variant>
         <comment>Unusual name, HBR, HFR</comment>
+    </person>
+    <person>
+        <variant> 
+            <surname>Johnson</surname>
+            <givenname>Chris</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant> 
+            <surname>Johnson</surname>
+            <givenname>Christopher Eric</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant> 
+            <surname>Johnson</surname>
+            <givenname>Chris</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant> 
+            <surname>Johnson</surname>
+            <givenname>Chris E</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <comment>ORCID, email</comment>
     </person>
     <person>
         <variant>

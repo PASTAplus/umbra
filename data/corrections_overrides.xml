@@ -81,6 +81,17 @@
     </override>
     <override>
         <original>
+            <surname>Henning</surname>
+            <givenname>Jerimiah</givenname>
+        </original>
+        <corrected>
+            <surname>Henning</surname>
+            <givenname>Jeremiah A</givenname>
+        </corrected>
+        <scope>edi</scope>
+    </override>
+    <override>
+        <original>
             <surname>Hicks-Pries</surname>
             <givenname>Caitlin Elizabeth</givenname>
         </original>
@@ -111,6 +122,17 @@
             <givenname>Oliver</givenname>
         </corrected>
         <scope>knb-lter-ntl</scope>
+    </override>
+    <override>
+        <original>
+            <surname>Lekberg</surname>
+            <givenname>Yiva</givenname>
+        </original>
+        <original>
+            <surname>Lekberg</surname>
+            <givenname>Ylva</givenname>
+        </original>
+        <scope>edi</scope>
     </override>
     <override>
         <original>
