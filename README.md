@@ -114,12 +114,12 @@ Scanning down this list, we see several cases that look suspicious: <br>
 We check these out by running psql queries on the server.
 
 ```
-select surname, givenname, scope, address, organization, email, url, orcid, organization_keywords from eml_files.responsible_parties_test where rp_type='creator' and surname='Anderson' and givenname in ('James','Jim') order by scope; <br>
+select surname, givenname, scope, address, organization, email, url, orcid, organization_keywords from eml_files.responsible_parties where rp_type='creator' and surname='Anderson' and givenname in ('James','Jim') order by scope; <br>
 ```
 shows that there is no evidence connecting Jim and James Anderson, so we do nothing.
 
 ```
-select surname, givenname, scope, address, organization, email, url, orcid, organization_keywords from eml_files.responsible_parties_test where rp_type='creator' and surname='Brown' and givenname like 'C%' order by scope; <br>
+select surname, givenname, scope, address, organization, email, url, orcid, organization_keywords from eml_files.responsible_parties where rp_type='creator' and surname='Brown' and givenname like 'C%' order by scope; <br>
 ```
 shows that Cindi and Cynthia S Brown are almost certainly different people, so again we do nothing.
 
