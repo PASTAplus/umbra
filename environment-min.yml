@@ -10,7 +10,8 @@ dependencies:
   - lxml
   - multidict
   - psycopg2==2.9.3
-  - uwsgi==2.0.21
+#  - uwsgi==2.0.21
+  - uwsgi
   - spacy
   - unidecode
   - aiohttp
