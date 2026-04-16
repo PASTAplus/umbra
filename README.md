@@ -196,7 +196,7 @@ __corrections_nicknames.xml__ lists nicknames that we want to recognize. E.g.,
     </nickname>
 ```
 
-__corections_orcids.xml__ lists ORCIDs for creators that have incorrect ORCIDs in one or more EML files. E.g., 
+__corrections_orcids.xml__ lists ORCIDs for creators that have incorrect ORCIDs in one or more EML files. E.g., 
 ```
     <correction>
         <surname>Stanley</surname>

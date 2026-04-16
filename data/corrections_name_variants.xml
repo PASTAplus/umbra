@@ -81,6 +81,18 @@
     </person>
     <person>
         <variant>
+            <surname>Beheshti</surname>
+            <givenname>Katherine M</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Beheshti</surname>
+            <givenname>Kathryn M</givenname>
+            <scope>edi</scope>
+        </variant>
+    </person>    
+    <person>
+        <variant>
             <surname>Bernhardt</surname>
             <givenname>Emily</givenname>
             <scope>edi</scope>
@@ -134,6 +146,11 @@
             <surname>Bowden</surname>
             <givenname>William "Breck"</givenname>
             <scope>knb-lter-arc</scope>
+        </variant>
+        <variant>
+            <surname>Bowden</surname>
+            <givenname>William B</givenname>
+            <scope>knb-lter-hbr</scope>
         </variant>
     </person>
     <person>
@@ -1283,6 +1300,18 @@
     </person>
     <person>
         <variant>
+            <surname>Powers</surname>
+            <givenname>Stephen M</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Powers</surname>
+            <givenname>Stephen</givenname>
+            <scope>edi</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
             <surname>Puerzer</surname>
             <givenname>Francesca</givenname>
             <scope>edi</scope>
@@ -1335,6 +1364,42 @@
             <surname>Reinmann</surname>
             <givenname>Andy</givenname>
             <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Reinmann</surname>
+            <givenname>Andrew</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Richardson</surname>
+            <givenname>David C</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Richardson</surname>
+            <givenname>David</givenname>
+            <scope>edi</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Richardson</surname>
+            <givenname>David L</givenname>
+            <scope>knb-lter-vcr</scope>
+        </variant>
+        <variant>
+            <surname>Richardson</surname>
+            <givenname>David</givenname>
+            <scope>knb-lter-vcr</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Reinmann</surname>
+            <givenname>Andrew</givenname>
+            <scope>knb-lter-hfr</scope>
         </variant>
         <variant>
             <surname>Reinmann</surname>
@@ -1497,6 +1562,18 @@
     </person>
     <person>
         <variant>
+            <surname>Stanley</surname>
+            <givenname>Rachel H R</givenname>
+            <scope>knb-lter-nes</scope>
+        </variant>
+        <variant>
+            <surname>Stanley</surname>
+            <givenname>Rachel</givenname>
+            <scope>knb-lter-nes</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
             <surname>Steinberg</surname>
             <givenname>Deborah</givenname>
             <scope>knb-lter-pal</scope>
@@ -1524,6 +1601,23 @@
             <scope>knb-lter-nwt</scope>
         </variant>
         <comment>Emails</comment>
+    </person>
+    <person>
+        <variant>
+            <surname>Takacs-Vesbach</surname>
+            <givenname>Cristina D</givenname>
+            <scope>knb-lter-mcm</scope>
+        </variant>
+        <variant>
+            <surname>Takacs-Vesbach</surname>
+            <givenname>Cristina</givenname>
+            <scope>knb-lter-mcm</scope>
+        </variant>
+        <variant>
+            <surname>Takacs-Vesbach</surname>
+            <givenname>Cristina</givenname>
+            <scope>knb-lter-sev</scope>
+        </variant>
     </person>
     <person>
         <variant>
@@ -1572,6 +1666,19 @@
             <givenname>John</givenname>
             <scope>knb-lter-nin</scope>
         </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Vietorisz</surname>
+            <givenname>Corinne R</givenname>
+            <scope>knb-lter-hbr</scope>
+        </variant>
+        <variant>
+            <surname>Vietorisz</surname>
+            <givenname>Corinne</givenname>
+            <scope>knb-lter-hfr</scope>
+        </variant>
+        <comment>ORCID indicates BU, Dartmouth</comment>
     </person>
     <person>
         <variant>
@@ -1705,6 +1812,30 @@
             <surname>Wragg</surname>
             <givenname>Peter</givenname>
             <scope>knb-lter-cdr</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Xiao</surname>
+            <givenname>Jingfeng</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Xiao</surname>
+            <givenname>Jingfing</givenname>
+            <scope>edi</scope>
+        </variant>
+    </person>
+    <person>
+        <variant>
+            <surname>Yesilonis</surname>
+            <givenname>Ian C</givenname>
+            <scope>edi</scope>
+        </variant>
+        <variant>
+            <surname>Yesilonis</surname>
+            <givenname>Ian</givenname>
+            <scope>knb-lter-bes</scope>
         </variant>
     </person>
     <person>
